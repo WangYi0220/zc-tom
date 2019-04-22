@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- mybatis整合spring的配置 -->
+<configuration>
+	<!-- 配置实体类的别名，配置实体类别名的目的是为了在引用实体类时可以使用实体类的别名来代替实体类，达到简写的目的 -->
+
+
+	<!--
+        配置分页插件
+        注意：4版本 com.github.pagehelper.PageHelper
+		     5版本 com.github.pagehelper.PageInterceptor，不需要指定dialect
+    -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->
+			<!--<property name="dialect" value="oracle" />-->
+		</plugin>
+	</plugins>
+
+</configuration>

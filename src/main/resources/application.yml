@@ -1,0 +1,38 @@
+server:
+  port: 80
+mybatis:
+  mapper-locations: classpath:mapper/**/*
+  type-aliases-package: com.zc.tom.pojo
+  config-location: classpath:SqlMapConfig.xml
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://192.168.22.46:3306/attendance_system_db?serverTimezone=GMT%2B8&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: GZXD17302
+      filter:
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1
+      filters: stat,wall,log4j2
+      test-while-idle: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
