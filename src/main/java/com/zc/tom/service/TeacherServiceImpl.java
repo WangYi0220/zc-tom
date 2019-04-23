@@ -67,7 +67,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     //禁用辅导员
     @Override
-    public void updateTeacherStatusByTeaUUID(String teaUUID) {
-        teacherMapper.updateTeacherStatusByTeaUUID(teaUUID);
+    public void deleteTeacherStatusByTeaUUID(String teaUUID) {
+        teacherMapper.deleteTeacherStatusByTeaUUID(teaUUID);
     }
 }

@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Stipulation;
 import com.zc.tom.service.StipulationService;
 import io.swagger.annotations.Api;
@@ -28,6 +29,8 @@ import java.util.Map;
 public class StipulationController {
     @Autowired
     private StipulationService stipulationService;
+    @Autowired
+    private Result result;
 
     @RequestMapping(value = "/list/{scID}",method = RequestMethod.GET)
     @ApiOperation("查看赏罚条例信息列表")
@@ -50,10 +53,10 @@ public class StipulationController {
             @ApiImplicitParam(name = "sValue",value = "加减分项，加为整数，减为负数",paramType = "query")
     })
     @ApiOperation("添加赏罚条例")
-    public Boolean addStipulation(@ApiIgnore Stipulation stipulation){
+    public Result addStipulation(@ApiIgnore Stipulation stipulation){
         System.out.println("stipulation = " + stipulation);
         stipulationService.addStipulation(stipulation);
-        return true;
+        return result;
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
@@ -64,9 +67,9 @@ public class StipulationController {
             @ApiImplicitParam(name = "sID",value = "规定编号",paramType = "query")
     })
     @ApiOperation("修改赏罚条例")
-    public Boolean updateStipulation(@ApiIgnore Stipulation stipulation){
+    public Result updateStipulation(@ApiIgnore Stipulation stipulation){
         System.out.println("stipulation = " + stipulation);
         stipulationService.updateStipulation(stipulation);
-        return true;
+        return result;
     }
 }

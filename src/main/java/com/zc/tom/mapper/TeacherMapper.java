@@ -19,5 +19,5 @@ public interface TeacherMapper {
     void addTeacher(@Param("teachers") List<Teacher> teachers);
 
     //禁用辅导员
-    void updateTeacherStatusByTeaUUID(@Param("teaUUID") String teaUUID);
+    void deleteTeacherStatusByTeaUUID(@Param("teaUUID") String teaUUID);
 }
