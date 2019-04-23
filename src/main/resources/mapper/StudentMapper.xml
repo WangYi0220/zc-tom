@@ -1,4 +1,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.StudentMapper">
 
+    <!--
+        xyy
+    -->
+
+    <select id="queryClassUUIDByClassName" parameterType="String" resultType="String">
+        SELECT classUUID FROM `tb_class` WHERE className = #{className}
+    </select>
+
+    <insert id="addStudent" parameterType="List">
+        insert into tb_student(stuUUID,stuName,stuNo,classUUID,email)
+        values
+        <foreach collection="students" item="student" separator=",">
+            (#{student.stuUUID},#{student.stuName},#{student.stuNo},#{student.classUUID},#{student.email})
+        </foreach>
+    </insert>
 </mapper>

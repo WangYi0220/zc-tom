@@ -24,4 +24,11 @@ public class Student implements Serializable {
     private String email;//
     private String status;//
 
+    public Student(String stuUUID, String stuName, String stuNo, String classUUID, String email) {
+        this.stuUUID = stuUUID;
+        this.stuName = stuName;
+        this.stuNo = stuNo;
+        this.classUUID = classUUID;
+        this.email = email;
+    }
 }
