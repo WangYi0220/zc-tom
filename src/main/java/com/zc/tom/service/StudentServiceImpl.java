@@ -3,13 +3,12 @@ package com.zc.tom.service;
 import com.zc.tom.common.utils.UUIDUtils;
 import com.zc.tom.mapper.StudentMapper;
 import com.zc.tom.pojo.Student;
-import com.zc.tom.pojo.Teacher;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
-import org.mybatis.spring.SqlSessionFactoryBean;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：WangYi
@@ -29,18 +29,33 @@ import java.util.List;
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
-
     @Autowired
     private StudentMapper studentMapper;
 
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
+    // 查看学生信息列表
+    @Override
+    public List<Map<String, Object>> queryStudentList() {
+        return studentMapper.queryStudentList();
+    }
 
+    // 根据编号查看学生信息
+    @Override
+    public Map<String, Object> queryStudentByStuUUID(String stuUUID) {
+        return studentMapper.queryStudentByStuUUID(stuUUID);
+    }
+
+    // 修改学生信息
+    @Override
+    public void updateStudent(Student student) {
+        studentMapper.updateStudent(student);
+    }
     //添加学生信息
     @Override
     public void importStudentInfo(MultipartFile multipartFile,String classUUID) {
-      SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH);
-      StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH);
+        StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
         try {
             List<Student> students = new ArrayList<>();
             InputStream inputStream = multipartFile.getInputStream();
@@ -59,9 +74,9 @@ public class StudentServiceImpl implements StudentService {
                 row.getCell(2).setCellType(CellType.STRING);
                 String email = row.getCell(2).getStringCellValue();//邮箱
 
-                students.add(new Student(stuUUID,stuName,stuNo,classUUID,email));
+                students.add(new Student(stuUUID, stuName, stuNo, classUUID, email));
             }
-            students.forEach(item-> {
+            students.forEach(item -> {
                 studentMapper.addStudent(item);
                 studentMapper.addStuPosition(item.getStuUUID());
             });
@@ -71,6 +86,11 @@ public class StudentServiceImpl implements StudentService {
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();
         }
-        //return null;
+    }
+    // 禁用学生信息
+    @Override
+    public void updateStudentStatusByStuUUID(String stuUUID) {
+        studentMapper.updateStudentStatusByStuUUID(stuUUID);
+
     }
 }

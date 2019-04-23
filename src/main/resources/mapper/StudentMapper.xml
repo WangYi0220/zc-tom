@@ -1,5 +1,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.StudentMapper">
+    <!--
+        mapper:学生
+        author:lxl
+    -->
 
     <!--
         xyy
@@ -13,4 +17,46 @@
     <insert id="addStuPosition" parameterType="String">
         INSERT INTO tb_stu_position(stuUUID) VALUES(#{stuUUID})
     </insert>
+    <!--查看学生信息列表-->
+    <select id="queryStudentList" resultType="Map">
+        select student.stuUUID,
+               student.stuName,
+               student.stuNo,
+               class.className,
+               level.levelName,
+               student.email
+        from tb_student student
+        inner join tb_class class on student.classUUID = class.classUUID
+        inner join tb_level level on student.levelID = level.levelID
+        where student.status = 1
+    </select>
+
+    <!--根据编号查看学生信息-->
+    <select id="queryStudentByStuUUID" parameterType="String" resultType="Map">
+        select student.stuUUID,
+               student.stuName,
+               student.stuNo,
+               class.className,
+               level.levelName,
+               student.email
+        from tb_student student
+                 inner join tb_class class on student.classUUID = class.classUUID
+                 inner join tb_level level on student.levelID = level.levelID
+        where student.stuUUID = #{stuUUID}
+    </select>
+
+    <!--修改学生信息-->
+    <update id="updateStudent" parameterType="Student">
+        update tb_student set stuName = #{stuName},
+                                classUUID = #{classUUID},
+                                email = #{email}
+        where stuUUID = #{stuUUID}
+    </update>
+
+    <!--禁用学生信息-->
+    <update id="updateStudentStatusByStuUUID" parameterType="String">
+        update tb_student set status = 0
+        where stuUUID = #{stuUUID}
+    </update>
+
 </mapper>

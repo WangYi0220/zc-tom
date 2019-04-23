@@ -32,10 +32,10 @@ public class StipulationController {
     @Autowired
     private Result result;
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list/{scID}",method = RequestMethod.GET)
     @ApiOperation("查看赏罚条例信息列表")
-    public List<Map<String,Object>> queryStipulationList(){
-        return stipulationService.queryStipulationList();
+    public List<Map<String,Object>> queryStipulationList(@PathVariable("scID") Integer scID){
+        return stipulationService.queryStipulationList(scID);
     }
 
     @RequestMapping(value = "/get/{sID}",method = RequestMethod.GET)
@@ -54,7 +54,6 @@ public class StipulationController {
     })
     @ApiOperation("添加赏罚条例")
     public Result addStipulation(@ApiIgnore Stipulation stipulation){
-        System.out.println("stipulation = " + stipulation);
         stipulationService.addStipulation(stipulation);
         return result;
     }

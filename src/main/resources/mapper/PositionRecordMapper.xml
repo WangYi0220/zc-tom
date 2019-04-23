@@ -1,4 +1,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.PositionRecordMapper">
+    <!--
+        mapper:职位变动记录信息
+        author:lxl
+    -->
 
+    <!--添加学生职位变动记录信息-->
+    <insert id="addPositionRecord" parameterType="PositionRecord">
+        insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        value(#{prUUID}, #{stuUUID}, #{prName}, #{remark}, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+    </insert>
 </mapper>
