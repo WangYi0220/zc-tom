@@ -54,7 +54,6 @@ public class StipulationController {
     })
     @ApiOperation("添加赏罚条例")
     public Result addStipulation(@ApiIgnore Stipulation stipulation){
-        System.out.println("stipulation = " + stipulation);
         stipulationService.addStipulation(stipulation);
         return result;
     }

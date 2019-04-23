@@ -11,6 +11,7 @@
                 teaName,
                 telephone
         from tb_teacher
+        where status = 1
     </select>
 
     <!--导入辅导员信息-->
