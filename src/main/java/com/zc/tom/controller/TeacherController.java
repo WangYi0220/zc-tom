@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Teacher;
 import com.zc.tom.service.TeacherService;
 import io.swagger.annotations.Api;
@@ -22,6 +23,8 @@ import java.util.List;
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private Result result;
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ApiOperation("查看辅导员信息列表")
@@ -31,15 +34,15 @@ public class TeacherController {
 
     @RequestMapping(value = "/import",method = RequestMethod.POST)
     @ApiOperation("导入辅导员信息")
-    public Boolean importTeacherInfo(MultipartFile multipartFile){
+    public Result importTeacherInfo(MultipartFile multipartFile){
         teacherService.importTeacherInfo(multipartFile);
-        return true;
+        return result;
     }
 
-    @RequestMapping(value = "/update/{teaUUID}",method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{teaUUID}",method = RequestMethod.GET)
     @ApiOperation("禁用辅导员")
-    public Boolean updateTeacherStatusByTeaUUID(@PathVariable("teaUUID") String teaUUID){
-        teacherService.updateTeacherStatusByTeaUUID(teaUUID);
-        return true;
+    public Result deleteTeacherStatusByTeaUUID(@PathVariable("teaUUID") String teaUUID){
+        teacherService.deleteTeacherStatusByTeaUUID(teaUUID);
+        return result;
     }
 }

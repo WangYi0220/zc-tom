@@ -23,7 +23,7 @@
     </insert>
 
     <!--禁用辅导员-->
-    <update id="updateTeacherStatusByTeaUUID" parameterType="String">
+    <update id="deleteTeacherStatusByTeaUUID" parameterType="String">
         update tb_teacher set status = 0
         where teaUUID = #{teaUUID}
     </update>

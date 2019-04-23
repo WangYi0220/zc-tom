@@ -1,6 +1,7 @@
 package com.zc.tom.controller;
 
 import com.zc.tom.pojo.Position;
+import com.zc.tom.pojo.Result;
 import com.zc.tom.service.PositionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -27,6 +28,8 @@ import java.util.List;
 public class PositionController {
     @Autowired
     private PositionService positionService;
+    @Autowired
+    private Result result;
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ApiOperation("查看职位信息列表")
@@ -46,9 +49,9 @@ public class PositionController {
             @ApiImplicitParam(name = "postSubsidy",value = "岗位补贴",dataType = "String",paramType = "query")
     })
     @ApiOperation("添加职位信息")
-    public Boolean addPosition(@ApiIgnore Position position){
+    public Result addPosition(@ApiIgnore Position position){
         positionService.addPosition(position);
-        return true;
+        return result;
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
@@ -58,8 +61,8 @@ public class PositionController {
             @ApiImplicitParam(name = "postID",value = "职位编号",dataType = "String",paramType = "query")
     })
     @ApiOperation("修改职位信息")
-    public Boolean updatePosition(@ApiIgnore Position position){
+    public Result updatePosition(@ApiIgnore Position position){
         positionService.updatePosition(position);
-        return true;
+        return result;
     }
 }

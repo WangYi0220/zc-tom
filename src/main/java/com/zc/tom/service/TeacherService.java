@@ -19,5 +19,5 @@ public interface TeacherService {
     void importTeacherInfo(MultipartFile multipartFile);
 
     //禁用辅导员
-    void updateTeacherStatusByTeaUUID(String teaUUID);
+    void deleteTeacherStatusByTeaUUID(String teaUUID);
 }
