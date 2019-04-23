@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.tom.mapper.StatisticsMapper">
+    <select id="statistics" parameterType="String" resultType="Map">
+        select
+
+        from (select stuUUID, stuName, email, levelID from tb_student where classUUID = #{classUUID} and status = 1) student
+        inner join tb_level level
+        on student.levelID = level.levelID
+
+    </select>
+</mapper>
