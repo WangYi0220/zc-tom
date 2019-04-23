@@ -48,12 +48,11 @@ public class TeacherServiceImpl implements TeacherService {
                 //从excel文件中获取辅导员的信息
                 String teaUUID = UUIDUtils.getUUID();
                 String teaName = row.getCell(0).getStringCellValue();
+                if ("".equals(teaName.trim())) continue;
                 row.getCell(1).setCellType(CellType.STRING);
-                String password = row.getCell(1).getStringCellValue();
-                row.getCell(2).setCellType(CellType.STRING);
-                String telephone = row.getCell(2).getStringCellValue();
+                String telephone = row.getCell(1).getStringCellValue();
 
-                teachers.add(new Teacher(teaUUID,teaName,password,telephone));
+                teachers.add(new Teacher(teaUUID,teaName,telephone,telephone));
             }
             teachers.forEach(System.out::println);
             teacherMapper.addTeacher(teachers);

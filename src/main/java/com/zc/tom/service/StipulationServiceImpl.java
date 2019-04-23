@@ -21,10 +21,10 @@ public class StipulationServiceImpl implements StipulationService {
     @Autowired
     private StipulationMapper stipulationMapper;
 
-    // 查看赏罚条例信息列表
+    // 根据赏罚类别查看赏罚条例信息列表
     @Override
-    public List<Map<String,Object>> queryStipulationList() {
-        return stipulationMapper.queryStipulationList();
+    public List<Map<String,Object>> queryStipulationList(Integer scID) {
+        return stipulationMapper.queryStipulationList(scID);
     }
 
     // 根据编号查看赏罚条例信息

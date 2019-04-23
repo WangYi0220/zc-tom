@@ -1,4 +1,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.ClazzMapper">
 
+    <!--
+        xyy
+    -->
+
+    <insert id="insertClazz" parameterType="Clazz">
+        INSERT INTO tb_class(classUUID,grade,className,teaUUID) VALUES (#{classUUID},#{grade},#{className},#{teaUUID})
+    </insert>
+
+    <update id="updateClazz" parameterType="Clazz">
+        UPDATE tb_class SET grade=#{grade},className=#{className},teaUUID=#{teaUUID} WHERE classUUID = #{classUUID}
+    </update>
+
+    <select id="queryClass" resultType="map">
+        SELECT s.* ,t.teaName FROM tb_class s , tb_teacher t WHERE s.teaUUId = t.teaUUID
+    </select>
 </mapper>

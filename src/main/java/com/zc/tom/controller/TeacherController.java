@@ -1,12 +1,18 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.utils.DownloadFileUtil;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Teacher;
 import com.zc.tom.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -25,6 +31,22 @@ public class TeacherController {
     private TeacherService teacherService;
     @Autowired
     private Result result;
+
+    private static final String PATH = "E:\\";
+    private static final String FILENAME = "tb_teacher.xlsx";
+    private static final String NAME = "辅导员信息模板";
+
+    @ApiOperation(value = "辅导员信息模板下载", httpMethod = "GET", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/download", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public Object downloadModel() {
+        ResponseEntity<InputStreamResource> response = null;
+        try {
+            response = DownloadFileUtil.download(PATH, FILENAME, NAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ApiOperation("查看辅导员信息列表")
