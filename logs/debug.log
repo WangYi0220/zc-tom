@@ -1059,3 +1059,30 @@
             (?,?,?,?)
 [2019-04-23 20:59:24] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
 >>>>>>> da5de6d75e8e7ee3325f9837a96ad4bebd678e71
+[2019-04-23 21:34:09] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:34:09] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:34:09] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:34:09] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:34:09] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:34:09] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:34:11] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 1482.563586 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:34:11] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 1483.046697 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:34:11] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-23 21:38:31] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:38:31] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:38:31] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:38:31] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:38:31] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:38:31] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:38:33] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 1593.202945 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:38:33] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 1593.202945 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:38:33] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-23 21:40:12] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:40:12] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-23 21:40:12] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:40:12] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:40:12] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-23 21:40:12] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-23 21:40:14] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 1501.039109 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:40:14] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 1501.039109 millis. {CALL updateStudentLevel()}
+[2019-04-23 21:40:14] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed

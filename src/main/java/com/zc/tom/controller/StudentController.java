@@ -1,17 +1,6 @@
 package com.zc.tom.controller;
 
 import com.zc.tom.common.utils.DownloadFileUtil;
-import com.zc.tom.service.StudentService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Student;
 import com.zc.tom.service.StudentService;
@@ -21,10 +10,10 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
@@ -37,7 +26,7 @@ import java.util.Map;
  * @modified By：
  */
 @RestController
-@RequestMapping("/Student")
+@RequestMapping("/student")
 @Api(tags = {"学生操作（xyy）"})
 @Slf4j
 public class StudentController {
@@ -46,8 +35,8 @@ public class StudentController {
 
     @Autowired
     private Result result;
-    private static final String PATH = "E:\\";
-    private static final String FILENAME ="学生模板.xlsx";
+    private static final String PATH = "/usr/tom/file";
+    private static final String FILENAME ="student.xlsx";
     private static final String NAME="学生信息模板";
 
     @PostMapping("/import")
