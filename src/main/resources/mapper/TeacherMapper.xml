@@ -19,7 +19,7 @@
         insert into tb_teacher(teaUUID, teaName, password, telephone)
         values
         <foreach collection="teachers" item="teacher" separator=",">
-            (#{teacher.teaUUID},#{teacher.teaName},#{teacher.password},#{teacher.telephone})
+            (#{teacher.teaUUID},#{teacher.teaName},#{teacher.telephone},#{teacher.telephone})
         </foreach>
     </insert>
 

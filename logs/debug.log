@@ -403,3 +403,16 @@
 [2019-04-23 19:54:21] DEBUG 134 statementLog - {conn-10005, pstmt-20001} executed. 2.717282 millis. insert into tb_stipulation_record(srUUID, stuUUID, sID, srName, remark, createTime)
         value(?,?,?,?,?,DATE_FORMAT(NOW(),'%Y-%m-%d'))
 [2019-04-23 19:54:21] DEBUG 137 statementLog - {conn-10005, pstmt-20001} closed
+[2019-04-23 20:30:18] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        value(?, ?, ?, ?, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+[2019-04-23 20:30:18] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        value(?, ?, ?, ?, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+[2019-04-23 20:30:18] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : [ca7957196b9d4ec48243069dffb66572, 6a5a626fb46340dc9b8d69cc7ef86152, 从弟弟贬值为弟中弟, 嘻嘻]
+[2019-04-23 20:30:18] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR]
+[2019-04-23 20:30:18] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : [ca7957196b9d4ec48243069dffb66572, 6a5a626fb46340dc9b8d69cc7ef86152, 从弟弟贬值为弟中弟, 嘻嘻]
+[2019-04-23 20:30:18] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, VARCHAR]
+[2019-04-23 20:30:18] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 4.311343 millis. insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        value(?, ?, ?, ?, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+[2019-04-23 20:30:18] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 4.739206 millis. insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        value(?, ?, ?, ?, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+[2019-04-23 20:30:18] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
