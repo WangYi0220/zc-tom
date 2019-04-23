@@ -11,8 +11,11 @@ import java.util.List;
 public interface StudentMapper {
 
     //添加学生信息
-    void addStudent(@Param("students") List<Student> students);
+    void addStudent(Student student);
 
-    //根据classUUID查询班级编号
-    String queryClassUUIDByClassName(@Param("className") String className);
+    //添加学生职位表
+    void addStuPosition(@Param("stuUUID") String stuUUID);
+
+
+
 }

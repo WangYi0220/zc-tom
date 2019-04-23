@@ -1,5 +1,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.TeacherMapper">
+    <!--
+        mapper:辅导员
+        author:lxl
+    -->
 
+    <!--查看辅导员信息列表-->
+    <select id="queryTeacherList" resultType="Teacher">
+        select teaUUID,
+                teaName,
+                telephone
+        from tb_teacher
+    </select>
 
+    <!--导入辅导员信息-->
+    <insert id="addTeacher" parameterType="List">
+        insert into tb_teacher(teaUUID, teaName, password, telephone)
+        values
+        <foreach collection="teachers" item="teacher" separator=",">
+            (#{teacher.teaUUID},#{teacher.teaName},#{teacher.password},#{teacher.telephone})
+        </foreach>
+    </insert>
+
+    <!--禁用辅导员-->
+    <update id="deleteTeacherStatusByTeaUUID" parameterType="String">
+        update tb_teacher set status = 0
+        where teaUUID = #{teaUUID}
+    </update>
 </mapper>

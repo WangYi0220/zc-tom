@@ -1,4 +1,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.StipulationMapper">
+    <!--
+        mapper:赏罚
+        author:lxl
+    -->
+
+    <!--查看赏罚条例信息列表-->
+    <select id="queryStipulationList" resultType="Map">
+        select stipulation.sID,
+               classify.scName,
+               stipulation.sName,
+               stipulation.sRemark,
+               stipulation.sValue
+        from tb_stipulation stipulation
+        inner join tb_stipulation_classify classify
+        on stipulation.scID = classify.scID
+    </select>
+
+    <!--根据编号查看赏罚条例信息-->
+    <select id="queryStipulationBySID" parameterType="int" resultType="Map">
+        select stipulation.sID,
+               classify.scName,
+               stipulation.sName,
+               stipulation.sRemark,
+               stipulation.sValue
+        from tb_stipulation stipulation
+        inner join tb_stipulation_classify classify
+        on stipulation.scID = classify.scID
+        where stipulation.sID = #{sID}
+    </select>
+
+    <!--添加赏罚条例-->
+    <insert id="addStipulation" parameterType="Stipulation">
+        insert into tb_stipulation(scID, sName, sMoney, sRemark, sValue)
+        value(#{scID},#{sName},#{sMoney},#{sRemark},#{sValue})
+    </insert>
+
+    <!--修改赏罚条例-->
+    <update id="updateStipulation" parameterType="Stipulation">
+        update tb_stipulation set sMoney = #{sMoney},
+                                     sRemark = #{sRemark},
+                                     sValue = #{sValue}
+        where sID = #{sID}
+    </update>
 
 </mapper>

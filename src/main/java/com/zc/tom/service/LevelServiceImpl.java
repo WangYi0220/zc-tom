@@ -27,7 +27,7 @@ public class LevelServiceImpl implements LevelService {
 
     //调整等级的基本薪资
     @Override
-    public void updateLevelByLevelID(int levelID) {
-        levelMapper.updateLevelByLevelID(levelID);
+    public void updateLevelByLevelID(int levelID,int salary) {
+        levelMapper.updateLevelByLevelID(levelID,salary);
     }
 }

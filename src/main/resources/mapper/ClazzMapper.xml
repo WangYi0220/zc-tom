@@ -14,6 +14,6 @@
     </update>
 
     <select id="queryClass" resultType="map">
-        SELECT s.* ,t.teaName FROM tb_class s , `tb_teacher` t WHERE s.teaUUId = t.teaUUID
+        SELECT s.* ,t.teaName FROM tb_class s , tb_teacher t WHERE s.teaUUId = t.teaUUID
     </select>
 </mapper>

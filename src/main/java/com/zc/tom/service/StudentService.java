@@ -6,6 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 public interface StudentService {
 
     //添加学生信息
-    void importStudentInfo(MultipartFile multipartFile);
+    void importStudentInfo(MultipartFile multipartFile,String classUUID);
 
 }

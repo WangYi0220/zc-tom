@@ -1,4 +1,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.PositionMapper">
+    <!--
+        mapper:职位
+        author:lxl
+    -->
 
+    <!--查看职位信息列表-->
+    <select id="queryPositionList" resultType="Position">
+        select postID,
+                postName,
+                postSubsidy
+        from tb_position
+    </select>
+
+    <!--根据编号查看职位信息-->
+    <select id="queryPositionByPostID" parameterType="int" resultType="Position">
+        select postID,
+               postName,
+               postSubsidy
+        from tb_position
+        where postID = #{postID}
+    </select>
+
+    <!--添加职位信息-->
+    <insert id="addPosition" parameterType="Position">
+        insert into tb_position(postName, postSubsidy)
+        value(#{postName},#{postSubsidy})
+    </insert>
+
+    <!--修改职位信息-->
+    <update id="updatePosition" parameterType="Position">
+        update tb_position set postName = #{postName},
+                                 postSubsidy = #{postSubsidy}
+        where postID = #{postID}
+    </update>
 </mapper>

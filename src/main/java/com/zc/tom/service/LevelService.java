@@ -6,5 +6,5 @@ public interface LevelService {
     void updateStudentLevel();
 
     //调整等级的基本薪资
-    void updateLevelByLevelID(int levelID);
+    void updateLevelByLevelID(int levelID,int salary);
 }

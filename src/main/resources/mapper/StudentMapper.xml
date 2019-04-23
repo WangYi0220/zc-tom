@@ -5,15 +5,12 @@
         xyy
     -->
 
-    <select id="queryClassUUIDByClassName" parameterType="String" resultType="String">
-        SELECT classUUID FROM `tb_class` WHERE className = #{className}
-    </select>
+    <insert id="addStudent" parameterType="Student">
+        insert into tb_student(stuUUID,stuName,stuNo,classUUID,email) values
+        (#{stuUUID},#{stuName},#{stuNo},#{classUUID},#{email})
+    </insert>
 
-    <insert id="addStudent" parameterType="List">
-        insert into tb_student(stuUUID,stuName,stuNo,classUUID,email)
-        values
-        <foreach collection="students" item="student" separator=",">
-            (#{student.stuUUID},#{student.stuName},#{student.stuNo},#{student.classUUID},#{student.email})
-        </foreach>
+    <insert id="addStuPosition" parameterType="String">
+        INSERT INTO tb_stu_position(stuUUID) VALUES(#{stuUUID})
     </insert>
 </mapper>
