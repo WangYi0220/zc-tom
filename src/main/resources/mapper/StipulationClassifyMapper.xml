@@ -1,4 +1,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.StipulationClassifyMapper">
+    <!--
+        mapper:赏罚分类
+        author:lxl
+    -->
 
+    <!--查看赏罚分类信息列表-->
+    <select id="queryStipulationClassifyList" resultType="StipulationClassify">
+        select scID,
+                scName
+        from tb_stipulation_classify
+    </select>
 </mapper>
