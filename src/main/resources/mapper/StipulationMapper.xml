@@ -24,6 +24,7 @@
         select stipulation.sID,
                classify.scName,
                stipulation.sName,
+               stipulation.sMoney,
                stipulation.sRemark,
                stipulation.sValue
         from tb_stipulation stipulation
