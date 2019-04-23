@@ -12,8 +12,8 @@ import java.util.Map;
  * @modified By:
  */
 public interface StipulationService {
-    // 查看赏罚条例信息列表
-    List<Map<String,Object>> queryStipulationList();
+    // 根据赏罚类别查看赏罚条例信息列表
+    List<Map<String,Object>> queryStipulationList(Integer scID);
 
     // 根据编号查看赏罚条例信息
     Map<String,Object> queryStipulationBySID(Integer sID);

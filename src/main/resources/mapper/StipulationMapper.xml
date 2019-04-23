@@ -5,7 +5,7 @@
         author:lxl
     -->
 
-    <!--查看赏罚条例信息列表-->
+    <!--根据赏罚类别查看赏罚条例信息列表-->
     <select id="queryStipulationList" resultType="Map">
         select stipulation.sID,
                classify.scName,
@@ -15,6 +15,7 @@
         from tb_stipulation stipulation
         inner join tb_stipulation_classify classify
         on stipulation.scID = classify.scID
+        where stipulation.scID = #{scID}
     </select>
 
     <!--根据编号查看赏罚条例信息-->

@@ -29,10 +29,10 @@ public class StipulationController {
     @Autowired
     private StipulationService stipulationService;
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list/{scID}",method = RequestMethod.GET)
     @ApiOperation("查看赏罚条例信息列表")
-    public List<Map<String,Object>> queryStipulationList(){
-        return stipulationService.queryStipulationList();
+    public List<Map<String,Object>> queryStipulationList(@PathVariable("scID") Integer scID){
+        return stipulationService.queryStipulationList(scID);
     }
 
     @RequestMapping(value = "/get/{sID}",method = RequestMethod.GET)
