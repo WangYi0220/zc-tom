@@ -33,16 +33,15 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     /**
      * 工资统计
+     *
      * @param classUUID
-     * @param beginDate
-     * @param endDate
      * @return
      */
     @Override
-    public ResponseEntity<InputStreamResource> statistics(String classUUID, String beginDate, String endDate) {
+    public ResponseEntity<InputStreamResource> statistics(String classUUID) {
         ResponseEntity<InputStreamResource> response = null;
         try {
-            List<Map<String, Object>> statistics = statisticsMapper.statistics(classUUID, beginDate, endDate);
+            List<Map<String, Object>> statistics = statisticsMapper.statistics(classUUID);
             XSSFWorkbook workbook = new XSSFWorkbook();
             XSSFSheet xssfSheet = workbook.createSheet();
             XSSFRow titleRow = xssfSheet.createRow(0);
@@ -51,27 +50,37 @@ public class StatisticsServiceImpl implements StatisticsService {
             titleRow.createCell(2).setCellValue("基本工资");
             titleRow.createCell(3).setCellValue("岗位津贴");
             titleRow.createCell(4).setCellValue("赏罚金额");
-            titleRow.createCell(5).setCellValue("当前积分");
-            titleRow.createCell(6).setCellValue("实发工资");
+            titleRow.createCell(5).setCellValue("绩效系数");
+            titleRow.createCell(6).setCellValue("考核分数");
+            titleRow.createCell(7).setCellValue("考核工资");
+            titleRow.createCell(8).setCellValue("当前积分");
+            titleRow.createCell(9).setCellValue("实发工资");
             statistics.forEach(item -> {
                 System.out.println(item);
                 int lastRowNum = xssfSheet.getLastRowNum();
                 XSSFRow dataRow = xssfSheet.createRow(lastRowNum + 1);
-                String stuName = (String) item.get("stuName");
-                String levelName = (String) item.get("levelName");
-                Double salary = Double.parseDouble(item.get("salary").toString());
-                Double subsidyTotal = Double.parseDouble(item.get("subsidyTotal").toString());
-                Double moneyTotal = Double.parseDouble(item.get("moneyTotal").toString());
-                Integer valueTotal = Integer.parseInt(item.get("valueTotal").toString());
-                dataRow.createCell(0).setCellValue(stuName);
-                dataRow.createCell(1).setCellValue(levelName);
-                dataRow.createCell(2).setCellValue((salary/100.00));
-                dataRow.createCell(3).setCellValue((subsidyTotal/100.00));
-                dataRow.createCell(4).setCellValue((moneyTotal/100.00));
-                dataRow.createCell(5).setCellValue(valueTotal);
-                dataRow.createCell(6).setCellValue(((salary+subsidyTotal+moneyTotal)/100.00));
+                String stuName = (String) item.get("stuName");//学生姓名
+                String levelName = (String) item.get("levelName");//学生等级
+                Double salary = Double.parseDouble(item.get("salary").toString());//基本工资
+                Double subsidyTotal = Double.parseDouble(item.get("subsidyTotal").toString());//岗位津贴
+                Double moneyTotal = Double.parseDouble(item.get("moneyTotal").toString());//赏罚金额
+                Integer valueTotal = Integer.parseInt(item.get("valueTotal").toString());//当前积分
+                Double coefficient = Double.parseDouble(item.get("coefficient").toString());//绩效系数
+                Double score = Double.parseDouble(item.get("score").toString());//考核分数
+                Double checkWage = (salary * coefficient * score);//考核工资
+
+                dataRow.createCell(0).setCellValue(stuName);//学生姓名
+                dataRow.createCell(1).setCellValue(levelName);//学生等级
+                dataRow.createCell(2).setCellValue(((salary + 0.00) / 100.00));//基本工资
+                dataRow.createCell(3).setCellValue(((subsidyTotal + 0.00) / 100.00));//岗位津贴
+                dataRow.createCell(4).setCellValue(((moneyTotal + 0.00) / 100.00));//赏罚金额
+                dataRow.createCell(5).setCellValue((coefficient + 0.00) / 100.00);//绩效系数
+                dataRow.createCell(6).setCellValue(score);//考核分数
+                dataRow.createCell(7).setCellValue((checkWage + 0.00) / Math.pow(100.00, 3.00));//考核工资
+                dataRow.createCell(8).setCellValue(valueTotal);//当前积分
+                dataRow.createCell(9).setCellValue((salary + subsidyTotal + moneyTotal) / 100.00 + (checkWage + 0.00) / Math.pow(100.00, 3.00));//实发工资
             });
-            String fileName = beginDate+"~"+endDate+"工资汇总.xlsx";
+            String fileName = "工资汇总.xlsx";
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             //将excel文件写入输出流
             workbook.write(out);

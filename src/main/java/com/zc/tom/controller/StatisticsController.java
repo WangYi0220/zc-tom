@@ -25,8 +25,8 @@ public class StatisticsController {
     private StatisticsService statisticsService;
 
     @ApiOperation(value = "工资统计下载(班级为单位)", httpMethod = "GET", produces = "application/json;charset=UTF-8")
-    @RequestMapping(value = "/statistics/{classUUID}/{beginDate}/{endDate}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public ResponseEntity<InputStreamResource> statistics(@PathVariable("classUUID") String classUUID, @PathVariable("beginDate") String beginDate, @PathVariable("endDate") String endDate) {
-        return statisticsService.statistics(classUUID, beginDate, endDate);
+    @RequestMapping(value = "/statistics/{classUUID}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public ResponseEntity<InputStreamResource> statistics(@PathVariable("classUUID") String classUUID) {
+        return statisticsService.statistics(classUUID);
     }
 }

@@ -58,3 +58,12 @@
 [2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} executed. 4.839612 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
 [2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} executed. 5.320718 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
 [2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} closed
+[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 84.649183 millis. {CALL updateStudentLevel()}
+[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 85.128293 millis. {CALL updateStudentLevel()}
+[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
