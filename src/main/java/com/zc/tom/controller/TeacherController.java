@@ -32,8 +32,8 @@ public class TeacherController {
     @Autowired
     private Result result;
 
-    private static final String PATH = "E:\\";
-    private static final String FILENAME = "tb_teacher.xlsx";
+    private static final String PATH = "/usr/tom/file";
+    private static final String FILENAME = "teacher.xlsx";
     private static final String NAME = "辅导员信息模板";
 
     @ApiOperation(value = "辅导员信息模板下载", httpMethod = "GET", produces = "application/json;charset=UTF-8")

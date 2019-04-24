@@ -5,6 +5,18 @@
         author:lxl
     -->
 
+    <!--
+        xyy
+    -->
+
+    <insert id="addStudent" parameterType="Student">
+        insert into tb_student(stuUUID,stuName,stuNo,classUUID,email) values
+        (#{stuUUID},#{stuName},#{stuNo},#{classUUID},#{email})
+    </insert>
+
+    <insert id="addStuPosition" parameterType="String">
+        INSERT INTO tb_stu_position(stuUUID) VALUES(#{stuUUID})
+    </insert>
     <!--查看学生信息列表-->
     <select id="queryStudentList" resultType="Map">
         select student.stuUUID,
@@ -46,4 +58,5 @@
         update tb_student set status = 0
         where stuUUID = #{stuUUID}
     </update>
+
 </mapper>

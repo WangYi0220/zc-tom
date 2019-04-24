@@ -6,6 +6,11 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * 学生操作
+ */
+
 /**
  * @author lxl
  * @Date Created in 2019/4/23 18:26
@@ -24,4 +29,10 @@ public interface StudentMapper {
 
     // 禁用学生
     void updateStudentStatusByStuUUID(@Param("stuUUID") String stuUUID);
+    //添加学生信息
+    void addStudent(Student student);
+
+    //添加学生职位表
+    void addStuPosition(@Param("stuUUID") String stuUUID);
+
 }
