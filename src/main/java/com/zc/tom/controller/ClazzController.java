@@ -39,7 +39,7 @@ public class ClazzController {
 
 
     @ApiOperation("修改班级")
-    @PostMapping("/uodate/class")
+    @PostMapping("/update/class")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "classUUID",value = "班级编号",dataType = "String" ,paramType = "query"),
             @ApiImplicitParam(name = "grade",value = "届",dataType = "String" ,paramType = "query"),
@@ -56,5 +56,4 @@ public class ClazzController {
     public PageInfo<Map<String, Object>> queryClass(@PathVariable int currentPage){
         return clazzService.queryClass(currentPage);
     }
-
 }

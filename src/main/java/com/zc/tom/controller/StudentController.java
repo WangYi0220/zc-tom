@@ -89,6 +89,5 @@ public class StudentController {
     public Result updateStudentStatusByStuUUID(@PathVariable("stuUUID") String stuUUID) {
         studentService.updateStudentStatusByStuUUID(stuUUID);
         return result;
-
     }
 }

@@ -22,5 +22,5 @@ public class Level implements Serializable {
     private String levelName;//等级编号
     private Integer salary;//基本月薪/分
     private Integer integral;//级别最低积分
-    private Integer coefficient;
+    private Integer coefficient;//考核系数
 }
