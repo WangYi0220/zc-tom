@@ -20,7 +20,4 @@ public interface LevelMapper {
    //查询等级表
    List<Level> queryLevel();
 
-   //查询考核积分
-   List<Map<String,Object>> queryCoefficient();
-
 }

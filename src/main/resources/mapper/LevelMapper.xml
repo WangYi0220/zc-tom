@@ -12,11 +12,6 @@
         UPDATE tb_level SET salary=#{salary} ,coefficient=#{coefficient}  WHERE levelID = #{levelID}
     </update>
 
-    <select id="queryCoefficient" resultType="Map">
-        SELECT t.`stuUUID`,l.coefficient FROM tb_student t
-        INNER JOIN tb_level l ON t.levelId = l.levelID
-    </select>
-
     <select id="queryLevel" resultType="Level">
         SELECT levelID , levelName , salary , coefficient FROM  tb_level
     </select>
