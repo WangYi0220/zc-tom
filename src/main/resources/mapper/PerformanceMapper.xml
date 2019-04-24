@@ -1,4 +1,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.PerformanceMapper">
+    <select id="getPerformanceByStuUUIDAndCreateTime" resultType="Performance">
+        select
+        perUUID,
+        score,
+        createTime
+        from tb_performance
+        where stuUUID = #{stuUUID}
+        and DATE_FORMAT(`createTime`,'%Y-%m') = #{date}
+    </select>
 
+    <insert id="addPerformance" parameterType="Performance">
+        insert into tb_performance(perUUID, stuUUID, score, createTime)
+        values (#{perUUID}, #{stuUUID}, #{score}, #{createTime})
+    </insert>
+
+    <update id="updateScore">
+        update tb_performance
+        set score = #{score}
+        where perUUID = #{perUUID}
+    </update>
 </mapper>

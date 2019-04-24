@@ -141,3 +141,12 @@
         ON stipulation.scID = stipulation_classify.scID
         WHERE stipulation_classify.flag = ?
 [2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
+[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 21:12:50] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 304.064348 millis. {CALL updateStudentLevel()}
+[2019-04-24 21:12:50] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 304.566125 millis. {CALL updateStudentLevel()}
+[2019-04-24 21:12:50] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed

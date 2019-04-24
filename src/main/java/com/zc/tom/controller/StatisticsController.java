@@ -23,13 +23,13 @@ public class StatisticsController {
     @Autowired
     private StatisticsService statisticsService;
 
-    @ApiOperation(value = "工资统计下载(班级为单位)", httpMethod = "GET", produces = "application/json;charset=UTF-8")
+    @ApiOperation(value = "工资统计下载(班级为单位)，本接口查询上一月整月工资", httpMethod = "GET", produces = "application/json;charset=UTF-8")
     @RequestMapping(value = "/statistics/{classUUID}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public ResponseEntity<InputStreamResource> statistics(@PathVariable("classUUID") String classUUID) {
         return statisticsService.statistics(classUUID);
     }
 
-    @ApiOperation(value = "工资统计前，检查哪一个学生没有给考核分数")
+    @ApiOperation(value = "工资统计前，检查哪一个学生没有给考核分数（上一月）")
     @GetMapping("/checkIn/{classUUID}")
     List<String> checkIn(@PathVariable("classUUID") String classUUID){
         return statisticsService.checkIn(classUUID);
