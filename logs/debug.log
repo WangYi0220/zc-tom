@@ -76,3 +76,68 @@
 [2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 415.160151 millis. {CALL updateStudentLevel()}
 [2019-04-24 20:29:46] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 415.632594 millis. {CALL updateStudentLevel()}
 [2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-24 21:06:38] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. SELECT student.stuName,
+               stipulation.sName,
+               stipulation_record.srName,
+               stipulation_record.remark,
+               stipulation_record.createTime
+        FROM tb_student student
+        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
+        FROM tb_stipulation_record WHERE stuUUID = ?
+        AND createTime BETWEEN ? AND ?) stipulation_record
+        ON student.stuUUID = stipulation_record.stuUUID
+        INNER JOIN tb_stipulation stipulation
+        ON stipulation.sID = stipulation_record.sID
+        INNER JOIN tb_stipulation_classify stipulation_classify
+        ON stipulation.scID = stipulation_classify.scID
+        WHERE stipulation_classify.flag = ?
+[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. SELECT student.stuName,
+               stipulation.sName,
+               stipulation_record.srName,
+               stipulation_record.remark,
+               stipulation_record.createTime
+        FROM tb_student student
+        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
+        FROM tb_stipulation_record WHERE stuUUID = ?
+        AND createTime BETWEEN ? AND ?) stipulation_record
+        ON student.stuUUID = stipulation_record.stuUUID
+        INNER JOIN tb_stipulation stipulation
+        ON stipulation.sID = stipulation_record.sID
+        INNER JOIN tb_stipulation_classify stipulation_classify
+        ON stipulation.scID = stipulation_classify.scID
+        WHERE stipulation_classify.flag = ?
+[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : [821c2a519a874b63ae1b24196650d470, 2019-04-01, 2019-04-24, 1]
+[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, INTEGER]
+[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : [821c2a519a874b63ae1b24196650d470, 2019-04-01, 2019-04-24, 1]
+[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, INTEGER]
+[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 46.210784 millis. SELECT student.stuName,
+               stipulation.sName,
+               stipulation_record.srName,
+               stipulation_record.remark,
+               stipulation_record.createTime
+        FROM tb_student student
+        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
+        FROM tb_stipulation_record WHERE stuUUID = ?
+        AND createTime BETWEEN ? AND ?) stipulation_record
+        ON student.stuUUID = stipulation_record.stuUUID
+        INNER JOIN tb_stipulation stipulation
+        ON stipulation.sID = stipulation_record.sID
+        INNER JOIN tb_stipulation_classify stipulation_classify
+        ON stipulation.scID = stipulation_classify.scID
+        WHERE stipulation_classify.flag = ?
+[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 46.210784 millis. SELECT student.stuName,
+               stipulation.sName,
+               stipulation_record.srName,
+               stipulation_record.remark,
+               stipulation_record.createTime
+        FROM tb_student student
+        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
+        FROM tb_stipulation_record WHERE stuUUID = ?
+        AND createTime BETWEEN ? AND ?) stipulation_record
+        ON student.stuUUID = stipulation_record.stuUUID
+        INNER JOIN tb_stipulation stipulation
+        ON stipulation.sID = stipulation_record.sID
+        INNER JOIN tb_stipulation_classify stipulation_classify
+        ON stipulation.scID = stipulation_classify.scID
+        WHERE stipulation_classify.flag = ?
+[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
