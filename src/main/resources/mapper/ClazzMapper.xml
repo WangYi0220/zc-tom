@@ -26,4 +26,16 @@
         where teaUUID = #{teaUUID}
         and grade = #{grade}
     </select>
+
+    <select id="queryClassByGrade" resultType="Map">
+        select
+        class.classUUID,
+        class.className,
+        class.grade,
+        teacher.teaUUID,
+        teacher.teaName
+        from (select classUUID, className, grade, teaUUID from tb_class where grade = #{grade}) class
+        inner join tb_teacher teacher
+        on class.teaUUID = teacher.teaUUID
+    </select>
 </mapper>

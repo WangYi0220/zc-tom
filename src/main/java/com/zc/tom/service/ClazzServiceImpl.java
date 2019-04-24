@@ -75,4 +75,14 @@ public class ClazzServiceImpl implements ClazzService {
     public List<Map<String, Object>> queryClassByTeaUUIDAndGrade(String teaUUID, String grade) {
         return clazzMapper.queryClassByTeaUUIDAndGrade(teaUUID, grade);
     }
+
+    /**
+     * 根据届查询班级
+     * @param grade
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> queryClassByGrade(String grade) {
+        return clazzMapper.queryClassByGrade(grade);
+    }
 }
