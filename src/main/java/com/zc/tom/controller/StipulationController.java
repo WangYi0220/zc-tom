@@ -39,7 +39,7 @@ public class StipulationController {
     }
 
     @RequestMapping(value = "/get/{sID}",method = RequestMethod.GET)
-    @ApiOperation("根据编号查看赏罚条例信息列表")
+    @ApiOperation("根据编号查看赏罚条例详情")
     public Map<String,Object> queryStipulationBySID(@PathVariable("sID") Integer sID){
         return stipulationService.queryStipulationBySID(sID);
     }

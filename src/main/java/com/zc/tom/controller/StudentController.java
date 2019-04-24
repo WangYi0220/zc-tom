@@ -36,14 +36,14 @@ public class StudentController {
     @Autowired
     private Result result;
     private static final String PATH = "/usr/tom/file";
-    private static final String FILENAME ="student.xlsx";
-    private static final String NAME="学生信息模板";
+    private static final String FILENAME = "student.xlsx";
+    private static final String NAME = "学生信息模板";
 
     @PostMapping("/import")
     @ApiOperation("学生信息导入")
-    public Boolean importStudentInfo(MultipartFile multipartFile,String classUUID){
-        studentService.importStudentInfo(multipartFile,classUUID);
-        return true;
+    public Result importStudentInfo(MultipartFile multipartFile, String classUUID) {
+        studentService.importStudentInfo(multipartFile, classUUID);
+        return result;
     }
 
     @RequestMapping(value = "/download", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
@@ -55,37 +55,38 @@ public class StudentController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return response;}
+        return response;
+    }
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ApiOperation("查看学生信息列表")
-    public List<Map<String, Object>> queryStudentList(){
+    public List<Map<String, Object>> queryStudentList() {
         return studentService.queryStudentList();
     }
 
-    @RequestMapping(value = "/get/{stuUUID}",method = RequestMethod.GET)
-    @ApiOperation("根据编号查看学生信息列表")
-    public Map<String, Object> queryStudentByStuUUID(@PathVariable("stuUUID") String stuUUID){
+    @RequestMapping(value = "/get/{stuUUID}", method = RequestMethod.GET)
+    @ApiOperation("根据编号查看学生详情")
+    public Map<String, Object> queryStudentByStuUUID(@PathVariable("stuUUID") String stuUUID) {
         return studentService.queryStudentByStuUUID(stuUUID);
     }
 
-    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "stuName",value = "学生姓名",paramType = "query"),
-            @ApiImplicitParam(name = "classUUID",value = "班级编号",paramType = "query"),
-            @ApiImplicitParam(name = "email",value = "邮箱",paramType = "query"),
-            @ApiImplicitParam(name = "stuUUID",value = "学生编号",paramType = "query")
+            @ApiImplicitParam(name = "stuName", value = "学生姓名", paramType = "query"),
+            @ApiImplicitParam(name = "classUUID", value = "班级编号", paramType = "query"),
+            @ApiImplicitParam(name = "email", value = "邮箱", paramType = "query"),
+            @ApiImplicitParam(name = "stuUUID", value = "学生编号", paramType = "query")
     })
     @ApiOperation("修改学生信息")
-    public Result updateStudent(@ApiIgnore Student student){
+    public Result updateStudent(@ApiIgnore Student student) {
         log.info(student.toString());
         studentService.updateStudent(student);
         return result;
     }
 
-    @RequestMapping(value = "/delete/{stuUUID}",method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{stuUUID}", method = RequestMethod.GET)
     @ApiOperation("禁用学生信息")
-    public Result updateStudentStatusByStuUUID(@PathVariable("stuUUID") String stuUUID){
+    public Result updateStudentStatusByStuUUID(@PathVariable("stuUUID") String stuUUID) {
         studentService.updateStudentStatusByStuUUID(stuUUID);
         return result;
 

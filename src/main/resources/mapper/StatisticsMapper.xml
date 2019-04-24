@@ -1,11 +1,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zc.tom.mapper.StatisticsMapper">
-    <select id="statistics" parameterType="String" resultType="Map">
-        select
-
+    <select id="statistics" resultType="Map">
+         select
+        student.stuUUID,
+        student.stuName,
+        student.email,
+        level.levelName,
+        level.salary,
+        stu_position.subsidyTotal,
+        IFNULL(stipulation_record.moneyTotal, 0) moneyTotal,
+        IFNULL(stipulation_record.valueTotal, 0) valueTotal
         from (select stuUUID, stuName, email, levelID from tb_student where classUUID = #{classUUID} and status = 1) student
-        inner join tb_level level
+        left join tb_level level
         on student.levelID = level.levelID
-
+        left join (select SUM(tp.postSubsidy) subsidyTotal, tsp.stuUUID from tb_stu_position tsp inner join tb_position tp on tsp.postID = tp.postID) stu_position
+        on stu_position.stuUUID = student.stuUUID
+        left join (select tsr.stuUUID, SUM(ts.sMoney) moneyTotal, SUM(ts.`sValue`) valueTotal from tb_stipulation_record tsr inner join tb_stipulation ts on tsr.sID = ts.sID where tsr.createTime between #{beginDate} and #{endDate}) stipulation_record
+        on stipulation_record.stuUUID = student.stuUUID
     </select>
 </mapper>

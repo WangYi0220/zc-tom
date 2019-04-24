@@ -35,7 +35,7 @@ public class PositionRecordController {
             @ApiImplicitParam(name = "prName",value = "变动名称",paramType = "query"),
             @ApiImplicitParam(name = "remark",value = "备注说明",paramType = "query")
     })
-    @ApiOperation("学生职位添加，并添加学生职位变动记录信息")
+    @ApiOperation("给予学生职位，如班长同时兼任团支书。给予第二职位时，用该接口")
     public Result addPositionRecord(@ApiIgnore PositionRecord positionRecord,@ApiIgnore Integer postID){
         positionRecordService.addPositionRecord(positionRecord,postID);
         return result;
@@ -49,7 +49,7 @@ public class PositionRecordController {
             @ApiImplicitParam(name = "prName",value = "变动名称",paramType = "query"),
             @ApiImplicitParam(name = "remark",value = "备注说明",paramType = "query")
     })
-    @ApiOperation("学生职位升降，并添加学生职位变动记录信息")
+    @ApiOperation("学生职位升降，如普通学生变为班长职位，用该接口")
     public Result updateStudentPosition(@ApiIgnore PositionRecord positionRecord, @ApiIgnore Integer oldPostID,
                                         @ApiIgnore Integer newPostID){
         positionRecordService.updateStudentPosition(positionRecord,oldPostID,newPostID);

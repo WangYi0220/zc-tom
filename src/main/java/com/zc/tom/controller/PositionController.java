@@ -39,7 +39,7 @@ public class PositionController {
     }
 
     @RequestMapping(value = "/get/{postID}",method = RequestMethod.GET)
-    @ApiOperation("根据编号查看职位信息列表")
+    @ApiOperation("根据编号查看职位详细信息")
     public Position queryPositionByPostID(@PathVariable("postID")Integer postID){
         return positionService.queryPositionByPostID(postID);
     }
