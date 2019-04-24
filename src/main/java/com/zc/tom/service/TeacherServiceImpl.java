@@ -57,11 +57,9 @@ public class TeacherServiceImpl implements TeacherService {
             teachers.forEach(System.out::println);
             teacherMapper.addTeacher(teachers);
 
-            //return teacher;
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();
         }
-        //return null;
     }
 
     //禁用辅导员

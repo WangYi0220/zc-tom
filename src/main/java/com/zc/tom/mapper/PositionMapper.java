@@ -4,6 +4,7 @@ import com.zc.tom.pojo.Position;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author lxl
@@ -17,6 +18,9 @@ public interface PositionMapper {
 
     //根据编号查看职位信息
     Position queryPositionByPostID(@Param("postID") Integer postID);
+
+    // 根据编号获取学生的职位信息
+    List<Map<String,Object>> getStudentPositionInfoByStuUUID(@Param("stuUUID") String stuUUID);
 
     //添加职位信息
     void addPosition(Position position);

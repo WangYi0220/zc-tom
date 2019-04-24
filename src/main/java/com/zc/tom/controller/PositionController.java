@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：WangYi
@@ -41,6 +42,12 @@ public class PositionController {
     @ApiOperation("根据编号查看职位信息列表")
     public Position queryPositionByPostID(@PathVariable("postID")Integer postID){
         return positionService.queryPositionByPostID(postID);
+    }
+
+    @RequestMapping(value = "/getStuPositionInfo/{stuUUID}",method = RequestMethod.GET)
+    @ApiOperation("根据编号查看学生的职位信息")
+    public List<Map<String,Object>> getStudentPositionInfoByStuUUID(String stuUUID){
+        return positionService.getStudentPositionInfoByStuUUID(stuUUID);
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)

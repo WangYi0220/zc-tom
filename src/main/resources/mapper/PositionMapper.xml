@@ -7,20 +7,33 @@
 
     <!--查看职位信息列表-->
     <select id="queryPositionList" resultType="Position">
-        select postID,
-                postName,
-                postSubsidy
-        from tb_position
+        SELECT postID,
+               postName,
+               0 + CAST(postSubsidy*0.01 AS DECIMAL(9,0)) AS postSubsidy
+        FROM tb_position
     </select>
 
     <!--根据编号查看职位信息-->
     <select id="queryPositionByPostID" parameterType="int" resultType="Position">
-        select postID,
+        SELECT postID,
                postName,
-               postSubsidy
-        from tb_position
+               0 + CAST(postSubsidy*0.01 AS DECIMAL(9,0)) AS postSubsidy
+        FROM tb_position
         where postID = #{postID}
     </select>
+
+    <!--根据编号获取学生的职位信息-->
+    <select id="getStudentPositionInfoByStuUUID" parameterType="String" resultType="Map">
+        select  student.stuUUID,
+                student.stuName,
+                position.postID,
+                position.postName
+        from tb_student student
+        inner join tb_stu_position stu_position on student.stuUUID = stu_position.stuUUID
+        inner join tb_position position on stu_position.postID = position.postID
+        where stu_position.stuUUID = #{stuUUID}
+    </select>
+
 
     <!--添加职位信息-->
     <insert id="addPosition" parameterType="Position">

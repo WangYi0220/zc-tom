@@ -31,12 +31,28 @@ public class PositionRecordController {
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "stuUUID",value = "学生编号",paramType = "query"),
+            @ApiImplicitParam(name = "postID",value = "职位编号",paramType = "query"),
             @ApiImplicitParam(name = "prName",value = "变动名称",paramType = "query"),
-            @ApiImplicitParam(name = "remark",value = "职位名称",paramType = "query"),
+            @ApiImplicitParam(name = "remark",value = "备注说明",paramType = "query")
     })
-    @ApiOperation("添加学生职位变动记录信息")
-    public Result addPositionRecord(@ApiIgnore PositionRecord positionRecord){
-        positionRecordService.addPositionRecord(positionRecord);
+    @ApiOperation("学生职位添加，并添加学生职位变动记录信息")
+    public Result addPositionRecord(@ApiIgnore PositionRecord positionRecord,@ApiIgnore Integer postID){
+        positionRecordService.addPositionRecord(positionRecord,postID);
+        return result;
+    }
+
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "stuUUID",value = "学生编号",paramType = "query"),
+            @ApiImplicitParam(name = "oldPostID",value = "原职位编号",paramType = "query"),
+            @ApiImplicitParam(name = "newPostID",value = "新职位编号",paramType = "query"),
+            @ApiImplicitParam(name = "prName",value = "变动名称",paramType = "query"),
+            @ApiImplicitParam(name = "remark",value = "备注说明",paramType = "query")
+    })
+    @ApiOperation("学生职位升降，并添加学生职位变动记录信息")
+    public Result updateStudentPosition(@ApiIgnore PositionRecord positionRecord, @ApiIgnore Integer oldPostID,
+                                        @ApiIgnore Integer newPostID){
+        positionRecordService.updateStudentPosition(positionRecord,oldPostID,newPostID);
         return result;
     }
 }

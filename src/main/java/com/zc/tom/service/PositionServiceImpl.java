@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：WangYi
@@ -30,6 +31,11 @@ public class PositionServiceImpl implements PositionService {
     @Override
     public Position queryPositionByPostID(Integer postID) {
         return positionMapper.queryPositionByPostID(postID);
+    }
+
+    @Override
+    public List<Map<String,Object>> getStudentPositionInfoByStuUUID(String stuUUID) {
+        return positionMapper.getStudentPositionInfoByStuUUID(stuUUID);
     }
 
     //添加职位信息
