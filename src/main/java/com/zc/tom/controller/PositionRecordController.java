@@ -52,9 +52,6 @@ public class PositionRecordController {
     @ApiOperation("学生职位升降，并添加学生职位变动记录信息")
     public Result updateStudentPosition(@ApiIgnore PositionRecord positionRecord, @ApiIgnore Integer oldPostID,
                                         @ApiIgnore Integer newPostID){
-        System.out.println("positionRecord = " + positionRecord);
-        System.out.println("oldPostID = " + oldPostID);
-        System.out.println("newPostID = " + newPostID);
         positionRecordService.updateStudentPosition(positionRecord,oldPostID,newPostID);
         return result;
     }

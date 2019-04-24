@@ -1,0 +1,42 @@
+[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 8.131959 millis. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 8.131959 millis. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
+[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 8.68106 millis. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 9.084547 millis. select postID,
+                postName,
+                postSubsidy
+        from tb_position
+[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
