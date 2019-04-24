@@ -40,3 +40,21 @@
                 postSubsidy
         from tb_position
 [2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
+[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. SELECT levelID , levelName , salary , coefficient FROM  tb_level
+[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. SELECT levelID , levelName , salary , coefficient FROM  tb_level
+[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
+[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
+[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 12.95556 millis. SELECT levelID , levelName , salary , coefficient FROM  tb_level
+[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 13.319597 millis. SELECT levelID , levelName , salary , coefficient FROM  tb_level
+[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
+[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} created. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
+[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} created. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
+[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} Parameters : [300001, 25, 1]
+[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER, INTEGER]
+[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} Parameters : [300001, 25, 1]
+[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER, INTEGER]
+[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} executed. 4.839612 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
+[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} executed. 5.320718 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
+[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} closed

@@ -1,5 +1,6 @@
 package com.zc.tom.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,9 +16,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Level implements Serializable {
     private Integer levelID;//等级编号
     private String levelName;//等级编号
     private Integer salary;//基本月薪/分
     private Integer integral;//级别最低积分
+    private Integer coefficient;
 }
