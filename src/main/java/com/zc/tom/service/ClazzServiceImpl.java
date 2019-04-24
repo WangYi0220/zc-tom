@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.zc.tom.common.utils.UUIDUtils;
 import com.zc.tom.mapper.ClazzMapper;
 import com.zc.tom.pojo.Clazz;
+import com.zc.tom.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,16 +26,19 @@ public class ClazzServiceImpl implements ClazzService {
     @Autowired
     private ClazzMapper clazzMapper;
 
+    @Autowired
+    private Result result;
+
     /**
      * 添加班级
      * @param clazz
      * @return
      */
     @Override
-    public Clazz insertClazz(Clazz clazz) {
+    public Result insertClazz(Clazz clazz) {
         clazz.setClassUUID(UUIDUtils.getUUID());
         clazzMapper.insertClazz(clazz);
-        return clazz;
+        return result;
     }
 
     /**
@@ -43,9 +47,9 @@ public class ClazzServiceImpl implements ClazzService {
      * @return
      */
     @Override
-    public Clazz updateClazz(Clazz clazz) {
+    public Result updateClazz(Clazz clazz) {
         clazzMapper.updateClazz(clazz);
-        return clazz;
+        return result;
     }
 
     /**

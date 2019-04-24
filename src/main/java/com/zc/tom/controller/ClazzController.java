@@ -2,6 +2,7 @@ package com.zc.tom.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.zc.tom.pojo.Clazz;
+import com.zc.tom.pojo.Result;
 import com.zc.tom.service.ClazzService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -26,6 +27,9 @@ public class ClazzController {
     @Autowired
     private ClazzService clazzService;
 
+    @Autowired
+    private Result result;
+
     @ApiOperation("添加班级")
     @PostMapping("/add/class")
     @ApiImplicitParams({
@@ -33,7 +37,7 @@ public class ClazzController {
             @ApiImplicitParam(name = "className",value = "班级名称",dataType = "String" ,paramType = "query"),
             @ApiImplicitParam(name = "teaUUID",value = "辅导员编号",dataType = "String" ,paramType = "query")
     })
-    public Clazz insertClazz(@ApiIgnore Clazz clazz){
+    public Result insertClazz(@ApiIgnore Clazz clazz){
         return clazzService.insertClazz(clazz);
     }
 
@@ -46,7 +50,7 @@ public class ClazzController {
             @ApiImplicitParam(name = "className",value = "班级名称",dataType = "String" ,paramType = "query"),
             @ApiImplicitParam(name = "teaUUID",value = "辅导员编号",dataType = "String" ,paramType = "query")
     })
-    public Clazz updateClazz(@ApiIgnore Clazz clazz){
+    public Result updateClazz(@ApiIgnore Clazz clazz){
         return clazzService.updateClazz(clazz);
     }
 

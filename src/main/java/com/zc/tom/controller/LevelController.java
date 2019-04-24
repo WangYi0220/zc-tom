@@ -39,7 +39,7 @@ public class LevelController {
 
 
     @ApiOperation("修改等级基本工资")
-    @PostMapping("update/salary")
+    @PostMapping("/update/salary")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "levelID",value = "等级编号",dataType = "int",paramType = "query"),
             @ApiImplicitParam(name = "salary",value = "工资",dataType = "int" ,paramType = "query"),
@@ -52,7 +52,7 @@ public class LevelController {
     }
 
     @ApiOperation("查询等级表")
-    @GetMapping("query/level")
+    @GetMapping("/query/level")
     public List<Level> queryLevel(){
         return levelService.queryLevel();
     }
