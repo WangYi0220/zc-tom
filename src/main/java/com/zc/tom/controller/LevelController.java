@@ -3,13 +3,15 @@ package com.zc.tom.controller;
 import com.zc.tom.pojo.Level;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.service.LevelService;
-import com.zc.tom.service.LevelServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
@@ -52,7 +54,7 @@ public class LevelController {
     }
 
     @ApiOperation("查询等级表")
-    @GetMapping("/query/level")
+    @GetMapping("/level/list")
     public List<Level> queryLevel(){
         return levelService.queryLevel();
     }

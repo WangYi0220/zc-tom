@@ -13,6 +13,6 @@
     </update>
 
     <select id="queryLevel" resultType="Level">
-        SELECT levelID , levelName , salary , coefficient FROM  tb_level
+        SELECT levelID , levelName , salary , integral, coefficient FROM  tb_level
     </select>
 </mapper>
