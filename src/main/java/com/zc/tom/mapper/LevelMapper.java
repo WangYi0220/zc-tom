@@ -1,10 +1,8 @@
 package com.zc.tom.mapper;
 
 import com.zc.tom.pojo.Level;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 等级操作
@@ -19,8 +17,4 @@ public interface LevelMapper {
 
    //查询等级表
    List<Level> queryLevel();
-
-   //查询考核积分
-   List<Map<String,Object>> queryCoefficient();
-
 }

@@ -71,7 +71,7 @@ public class StatisticsServiceImpl implements StatisticsService {
                 dataRow.createCell(5).setCellValue(valueTotal);
                 dataRow.createCell(6).setCellValue(((salary+subsidyTotal+moneyTotal)/100.00));
             });
-            String fileName = beginDate+"-"+endDate+"工资汇总.xlsx";
+            String fileName = beginDate+"~"+endDate+"工资汇总.xlsx";
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             //将excel文件写入输出流
             workbook.write(out);
