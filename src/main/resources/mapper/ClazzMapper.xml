@@ -16,4 +16,14 @@
     <select id="queryClass" resultType="map">
         SELECT s.* ,t.teaName FROM tb_class s , tb_teacher t WHERE s.teaUUId = t.teaUUID
     </select>
+
+    <select id="queryClassByTeaUUIDAndGrade" resultType="Map">
+        select
+        classUUID,
+        className,
+        grade
+        from tb_class
+        where teaUUID = #{teaUUID}
+        and grade = #{grade}
+    </select>
 </mapper>

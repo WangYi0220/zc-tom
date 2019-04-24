@@ -26,4 +26,6 @@ public interface ClazzService {
      * @return
      */
     PageInfo<Map<String,Object>> queryClass(int currentPage);
+
+    List<Map<String, Object>> queryClassByTeaUUIDAndGrade(String teaUUID,String grade);
 }

@@ -1,5 +1,7 @@
 package com.zc.tom.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zc.tom.common.utils.UUIDUtils;
 import com.zc.tom.mapper.StudentMapper;
 import com.zc.tom.pojo.Student;
@@ -8,7 +10,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,10 +35,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
-    // 查看学生信息列表
+
+    // 根据班级编号查看学生信息列表，实现分页
     @Override
-    public List<Map<String, Object>> queryStudentList() {
-        return studentMapper.queryStudentList();
+    public PageInfo<Map<String,Object>> queryStudentListByClassUUID(String classUUID, Integer pageNum) {
+        PageHelper.startPage(pageNum,10);
+        List<Map<String, Object>> students = studentMapper.queryStudentListByClassUUID(classUUID);
+        return new PageInfo<>(students);
     }
 
     // 根据编号查看学生信息

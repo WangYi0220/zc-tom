@@ -6,10 +6,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author ：WangYi
@@ -28,5 +27,11 @@ public class StatisticsController {
     @RequestMapping(value = "/statistics/{classUUID}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public ResponseEntity<InputStreamResource> statistics(@PathVariable("classUUID") String classUUID) {
         return statisticsService.statistics(classUUID);
+    }
+
+    @ApiOperation(value = "工资统计前，检查哪一个学生没有给考核分数")
+    @GetMapping("/checkIn/{classUUID}")
+    List<String> checkIn(@PathVariable("classUUID") String classUUID){
+        return statisticsService.checkIn(classUUID);
     }
 }

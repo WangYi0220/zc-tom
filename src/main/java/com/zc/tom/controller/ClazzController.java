@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -59,5 +60,11 @@ public class ClazzController {
     @GetMapping("/query/class/{currentPage}")
     public PageInfo<Map<String, Object>> queryClass(@PathVariable int currentPage){
         return clazzService.queryClass(currentPage);
+    }
+
+    @ApiOperation("根据辅导员编号和届查询班级")
+    @GetMapping("/list/by/{teaUUID}/{grade}")
+    List<Map<String, Object>> queryClassByTeaUUIDAndGrade(@PathVariable("teaUUID") String teaUUID,@PathVariable("grade") String grade){
+        return clazzService.queryClassByTeaUUIDAndGrade(teaUUID, grade);
     }
 }

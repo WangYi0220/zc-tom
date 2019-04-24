@@ -16,6 +16,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -97,5 +99,22 @@ public class StatisticsServiceImpl implements StatisticsService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 工资统计前，检查哪一个学生没有给考核分数
+     *
+     * @param classUUID
+     * @return
+     */
+    @Override
+    public List<String> checkIn(String classUUID) {
+        List<String> names = new ArrayList<>();
+        List<Map<String, Object>> list = statisticsMapper.checkIn(classUUID);
+        list.forEach(item -> {
+            String score = item.get("score").toString();
+            if ("-1".equals(score.trim())) names.add(item.get("stuName").toString());
+        });
+        return names;
     }
 }

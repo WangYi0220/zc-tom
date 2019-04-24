@@ -7,4 +7,6 @@ import java.util.Map;
 
 public interface StatisticsMapper {
      List<Map<String, Object>> statistics(@Param("classUUID") String classUUID);
+
+     List<Map<String, Object>> checkIn(@Param("classUUID") String classUUID);
 }

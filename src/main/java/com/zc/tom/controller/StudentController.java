@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.zc.tom.common.utils.DownloadFileUtil;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Student;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -58,10 +58,11 @@ public class StudentController {
         return response;
     }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    @ApiOperation("查看学生信息列表")
-    public List<Map<String, Object>> queryStudentList() {
-        return studentService.queryStudentList();
+    @RequestMapping(value = "/list/{classUUID}/{pageNum}", method = RequestMethod.GET)
+    @ApiOperation("根据班级编号查看学生信息列表")
+    public PageInfo<Map<String,Object>> queryStudentListByClassUUID(@PathVariable("classUUID") String classUUID,
+                                                                    @PathVariable("pageNum") Integer pageNum) {
+        return studentService.queryStudentListByClassUUID(classUUID,pageNum);
     }
 
     @RequestMapping(value = "/get/{stuUUID}", method = RequestMethod.GET)

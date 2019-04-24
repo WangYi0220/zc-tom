@@ -1,6 +1,7 @@
 package com.zc.tom.mapper;
 
 import com.zc.tom.pojo.Clazz;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -19,4 +20,6 @@ public interface ClazzMapper {
 
     //查询全部班级
     List<Map<String,Object>> queryClass();
+
+    List<Map<String, Object>> queryClassByTeaUUIDAndGrade(@Param("teaUUID") String teaUUID, @Param("grade") String grade);
 }

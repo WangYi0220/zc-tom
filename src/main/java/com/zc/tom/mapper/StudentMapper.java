@@ -18,8 +18,8 @@ import java.util.Map;
  * @modified By:
  */
 public interface StudentMapper {
-    // 查看学生信息列表
-    List<Map<String,Object>> queryStudentList();
+    // 根据班级编号查看学生信息列表
+    List<Map<String,Object>> queryStudentListByClassUUID(@Param("classUUID") String classUUID);
 
     // 根据编号查看学生信息
     Map<String, Object> queryStudentByStuUUID(@Param("stuUUID") String stuUUID);

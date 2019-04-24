@@ -18,7 +18,7 @@
         INSERT INTO tb_stu_position(stuUUID) VALUES(#{stuUUID})
     </insert>
     <!--查看学生信息列表-->
-    <select id="queryStudentList" resultType="Map">
+    <select id="queryStudentListByClassUUID" resultType="Map">
         select student.stuUUID,
                student.stuName,
                student.stuNo,
@@ -29,6 +29,7 @@
         inner join tb_class class on student.classUUID = class.classUUID
         inner join tb_level level on student.levelID = level.levelID
         where student.status = 1
+        and student.classUUID = #{classUUID}
     </select>
 
     <!--根据编号查看学生信息-->

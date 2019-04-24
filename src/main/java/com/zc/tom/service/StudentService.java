@@ -1,19 +1,10 @@
 package com.zc.tom.service;
 
 
+import com.github.pagehelper.PageInfo;
 import com.zc.tom.pojo.Student;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-import java.util.Map;
-
-
-
-
-import com.zc.tom.pojo.Student;
-
-import java.util.List;
 import java.util.Map;
 /**
  * @author lxl
@@ -24,8 +15,8 @@ import java.util.Map;
 public interface StudentService {
     //添加学生信息
     void importStudentInfo(MultipartFile multipartFile,String classUUID);
-    // 查看学生信息列表
-    List<Map<String,Object>> queryStudentList();
+    // 根据班级编号查看学生信息列表,实现分页功能
+    PageInfo<Map<String,Object>> queryStudentListByClassUUID(String classUUID, Integer pageNum);
 
     // 根据编号查看学生信息
     Map<String, Object> queryStudentByStuUUID(String stuUUID);

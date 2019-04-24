@@ -67,3 +67,12 @@
 [2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 84.649183 millis. {CALL updateStudentLevel()}
 [2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 85.128293 millis. {CALL updateStudentLevel()}
 [2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 415.160151 millis. {CALL updateStudentLevel()}
+[2019-04-24 20:29:46] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 415.632594 millis. {CALL updateStudentLevel()}
+[2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed

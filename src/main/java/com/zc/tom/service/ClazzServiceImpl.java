@@ -64,4 +64,15 @@ public class ClazzServiceImpl implements ClazzService {
         PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(map);//获取分页对象
         return pageInfo;
     }
+
+    /**
+     * 根据辅导员编号和届查询班级
+     * @param teaUUID
+     * @param grade
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> queryClassByTeaUUIDAndGrade(String teaUUID, String grade) {
+        return clazzMapper.queryClassByTeaUUIDAndGrade(teaUUID, grade);
+    }
 }
