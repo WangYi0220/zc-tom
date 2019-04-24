@@ -22,6 +22,19 @@
         where postID = #{postID}
     </select>
 
+    <!--根据编号获取学生的职位信息-->
+    <select id="getStudentPositionInfoByStuUUID" parameterType="String" resultType="Map">
+        select  student.stuUUID,
+                student.stuName,
+                position.postID,
+                position.postName
+        from tb_student student
+        inner join tb_stu_position stu_position on student.stuUUID = stu_position.stuUUID
+        inner join tb_position position on stu_position.postID = position.postID
+        where stu_position.stuUUID = #{stuUUID}
+    </select>
+
+
     <!--添加职位信息-->
     <insert id="addPosition" parameterType="Position">
         insert into tb_position(postName, postSubsidy)

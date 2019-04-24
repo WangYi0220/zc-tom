@@ -19,11 +19,19 @@ public class PositionRecordServiceImpl implements PositionRecordService {
     @Autowired
     private PositionRecordMapper positionRecordMapper;
 
-    // 添加学生职位变动记录信息
+    // 学生职位添加，并添加学生职位变动记录信息
     @Override
-    public void addPositionRecord(PositionRecord positionRecord) {
+    public void addPositionRecord(PositionRecord positionRecord,Integer postID) {
         String prUUID = UUIDUtils.getUUID();
         positionRecord.setPrUUID(prUUID);
-        positionRecordMapper.addPositionRecord(positionRecord);
+        positionRecordMapper.addPositionRecord(positionRecord,postID);
+    }
+
+    // 学生职位升降，并添加学生职位变动记录信息
+    @Override
+    public void updateStudentPosition(PositionRecord positionRecord, Integer oldPostID,Integer newPostID) {
+        String prUUID = UUIDUtils.getUUID();
+        positionRecord.setPrUUID(prUUID);
+        positionRecordMapper.updateStudentPosition(positionRecord,oldPostID,newPostID);
     }
 }

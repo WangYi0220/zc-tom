@@ -5,9 +5,27 @@
         author:lxl
     -->
 
-    <!--添加学生职位变动记录信息-->
-    <insert id="addPositionRecord" parameterType="PositionRecord">
+    <!--学生职位添加，并添加学生职位变动记录信息-->
+    <insert id="addPositionRecord">
+        insert into tb_stu_position(stuUUID, postID)
+        values
+        (#{positionRecord.stuUUID},#{postID});
+
         insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
-        value(#{prUUID}, #{stuUUID}, #{prName}, #{remark}, DATE_FORMAT(NOW(),'%Y-%m-%d'))
+        values
+        (#{positionRecord.prUUID}, #{positionRecord.stuUUID}, #{positionRecord.prName},
+         #{positionRecord.remark}, DATE_FORMAT(NOW(),'%Y-%m-%d'));
     </insert>
+
+    <!--学生职位升降，并添加学生职位变动记录信息-->
+    <update id="updateStudentPosition">
+        update tb_stu_position set postID = #{newPostID}
+        where stuUUID = #{positionRecord.stuUUID}
+        AND postID = #{oldPostID};
+
+        insert into tb_position_record(prUUID, stuUUID, prName, remark, createTime)
+        values
+         (#{positionRecord.prUUID}, #{positionRecord.stuUUID}, #{positionRecord.prName},
+          #{positionRecord.remark}, DATE_FORMAT(NOW(),'%Y-%m-%d'));
+    </update>
 </mapper>
