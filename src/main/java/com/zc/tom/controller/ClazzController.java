@@ -69,8 +69,8 @@ public class ClazzController {
     }
 
     @ApiOperation("根据届查询班级")
-    @GetMapping("/list/by/{grade}")
-    public List<Map<String, Object>> queryClassByGrade(@PathVariable("grade") String grade){
-        return clazzService.queryClassByGrade(grade);
+    @GetMapping("/list/by/{grade}/{currentPage}")
+    public PageInfo<Map<String,Object>>queryClassByGrade(@PathVariable("grade") String grade,@PathVariable("currentPage") int currentPage){
+        return clazzService.queryClassByGrade(grade, currentPage);
     }
 }

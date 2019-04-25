@@ -14,7 +14,14 @@
     </update>
 
     <select id="queryClass" resultType="map">
-        SELECT s.* ,t.teaName FROM tb_class s , tb_teacher t WHERE s.teaUUId = t.teaUUID
+        SELECT
+        class.classUUID,
+        class.className,
+        class.grade,
+        teacher.teaUUID,
+        teacher.teaName
+        FROM tb_class class , tb_teacher teacher
+        WHERE class.teaUUId = teacher.teaUUID
     </select>
 
     <select id="queryClassByTeaUUIDAndGrade" resultType="Map">

@@ -1,152 +1,18 @@
-[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 8.131959 millis. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:07:59] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 8.131959 millis. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:07:59] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
-[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 8.68106 millis. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:11:29] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 9.084547 millis. select postID,
-                postName,
-                postSubsidy
-        from tb_position
-[2019-04-24 11:11:29] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
-[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. SELECT levelID , levelName , salary , coefficient FROM  tb_level
-[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. SELECT levelID , levelName , salary , coefficient FROM  tb_level
-[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : []
-[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : []
-[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 12.95556 millis. SELECT levelID , levelName , salary , coefficient FROM  tb_level
-[2019-04-24 14:53:41] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 13.319597 millis. SELECT levelID , levelName , salary , coefficient FROM  tb_level
-[2019-04-24 14:53:41] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
-[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} created. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
-[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} created. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
-[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} Parameters : [300001, 25, 1]
-[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER, INTEGER]
-[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} Parameters : [300001, 25, 1]
-[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER, INTEGER]
-[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} executed. 4.839612 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
-[2019-04-24 14:54:44] DEBUG 134 statementLog - {conn-10005, pstmt-20001} executed. 5.320718 millis. UPDATE tb_level SET salary=? ,coefficient=?  WHERE levelID = ?
-[2019-04-24 14:54:44] DEBUG 137 statementLog - {conn-10005, pstmt-20001} closed
-[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 84.649183 millis. {CALL updateStudentLevel()}
-[2019-04-24 18:51:19] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 85.128293 millis. {CALL updateStudentLevel()}
-[2019-04-24 18:51:19] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
-[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 20:29:45] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 20:29:45] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 415.160151 millis. {CALL updateStudentLevel()}
-[2019-04-24 20:29:46] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 415.632594 millis. {CALL updateStudentLevel()}
-[2019-04-24 20:29:46] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
-[2019-04-24 21:06:38] DEBUG 137 statementLog - {conn-10005, pstmt-20000} created. SELECT student.stuName,
-               stipulation.sName,
-               stipulation_record.srName,
-               stipulation_record.remark,
-               stipulation_record.createTime
-        FROM tb_student student
-        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
-        FROM tb_stipulation_record WHERE stuUUID = ?
-        AND createTime BETWEEN ? AND ?) stipulation_record
-        ON student.stuUUID = stipulation_record.stuUUID
-        INNER JOIN tb_stipulation stipulation
-        ON stipulation.sID = stipulation_record.sID
-        INNER JOIN tb_stipulation_classify stipulation_classify
-        ON stipulation.scID = stipulation_classify.scID
-        WHERE stipulation_classify.flag = ?
-[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} created. SELECT student.stuName,
-               stipulation.sName,
-               stipulation_record.srName,
-               stipulation_record.remark,
-               stipulation_record.createTime
-        FROM tb_student student
-        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
-        FROM tb_stipulation_record WHERE stuUUID = ?
-        AND createTime BETWEEN ? AND ?) stipulation_record
-        ON student.stuUUID = stipulation_record.stuUUID
-        INNER JOIN tb_stipulation stipulation
-        ON stipulation.sID = stipulation_record.sID
-        INNER JOIN tb_stipulation_classify stipulation_classify
-        ON stipulation.scID = stipulation_classify.scID
-        WHERE stipulation_classify.flag = ?
-[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Parameters : [821c2a519a874b63ae1b24196650d470, 2019-04-01, 2019-04-24, 1]
-[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, INTEGER]
-[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Parameters : [821c2a519a874b63ae1b24196650d470, 2019-04-01, 2019-04-24, 1]
-[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} Types : [VARCHAR, VARCHAR, VARCHAR, INTEGER]
-[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} executed. 46.210784 millis. SELECT student.stuName,
-               stipulation.sName,
-               stipulation_record.srName,
-               stipulation_record.remark,
-               stipulation_record.createTime
-        FROM tb_student student
-        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
-        FROM tb_stipulation_record WHERE stuUUID = ?
-        AND createTime BETWEEN ? AND ?) stipulation_record
-        ON student.stuUUID = stipulation_record.stuUUID
-        INNER JOIN tb_stipulation stipulation
-        ON stipulation.sID = stipulation_record.sID
-        INNER JOIN tb_stipulation_classify stipulation_classify
-        ON stipulation.scID = stipulation_classify.scID
-        WHERE stipulation_classify.flag = ?
-[2019-04-24 21:06:39] DEBUG 134 statementLog - {conn-10005, pstmt-20000} executed. 46.210784 millis. SELECT student.stuName,
-               stipulation.sName,
-               stipulation_record.srName,
-               stipulation_record.remark,
-               stipulation_record.createTime
-        FROM tb_student student
-        INNER JOIN (SELECT stuUUID,sID,srName,remark,createTime
-        FROM tb_stipulation_record WHERE stuUUID = ?
-        AND createTime BETWEEN ? AND ?) stipulation_record
-        ON student.stuUUID = stipulation_record.stuUUID
-        INNER JOIN tb_stipulation stipulation
-        ON stipulation.sID = stipulation_record.sID
-        INNER JOIN tb_stipulation_classify stipulation_classify
-        ON stipulation.scID = stipulation_classify.scID
-        WHERE stipulation_classify.flag = ?
-[2019-04-24 21:06:39] DEBUG 137 statementLog - {conn-10005, pstmt-20000} closed
-[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
-[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 21:12:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
-[2019-04-24 21:12:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
-[2019-04-24 21:12:50] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 304.064348 millis. {CALL updateStudentLevel()}
-[2019-04-24 21:12:50] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 304.566125 millis. {CALL updateStudentLevel()}
-[2019-04-24 21:12:50] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-25 09:31:48] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-25 09:31:48] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-25 09:31:48] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-25 09:31:48] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-25 09:31:48] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-25 09:31:48] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-25 09:31:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 342.300724 millis. {CALL updateStudentLevel()}
+[2019-04-25 09:31:49] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 342.300724 millis. {CALL updateStudentLevel()}
+[2019-04-25 09:31:49] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed
+[2019-04-25 09:36:38] DEBUG 137 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-25 09:36:38] DEBUG 134 statementLog - {conn-10005, cstmt-20000} created. {CALL updateStudentLevel()}
+[2019-04-25 09:36:38] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-25 09:36:38] DEBUG 134 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-25 09:36:38] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Parameters : []
+[2019-04-25 09:36:38] DEBUG 137 statementLog - {conn-10005, cstmt-20000} Types : []
+[2019-04-25 09:36:38] DEBUG 137 statementLog - {conn-10005, cstmt-20000} executed. 294.281254 millis. {CALL updateStudentLevel()}
+[2019-04-25 09:36:38] DEBUG 134 statementLog - {conn-10005, cstmt-20000} executed. 294.281254 millis. {CALL updateStudentLevel()}
+[2019-04-25 09:36:38] DEBUG 137 statementLog - {conn-10005, cstmt-20000} closed

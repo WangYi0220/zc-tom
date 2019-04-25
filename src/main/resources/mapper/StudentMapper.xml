@@ -37,12 +37,15 @@
         select student.stuUUID,
                student.stuName,
                student.stuNo,
+               class.classUUID,
                class.className,
                level.levelName,
                student.email
         from tb_student student
-                 inner join tb_class class on student.classUUID = class.classUUID
-                 inner join tb_level level on student.levelID = level.levelID
+        inner join tb_class class
+        on student.classUUID = class.classUUID
+        inner join tb_level level
+        on student.levelID = level.levelID
         where student.stuUUID = #{stuUUID}
     </select>
 

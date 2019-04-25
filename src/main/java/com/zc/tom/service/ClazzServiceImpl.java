@@ -82,7 +82,10 @@ public class ClazzServiceImpl implements ClazzService {
      * @return
      */
     @Override
-    public List<Map<String, Object>> queryClassByGrade(String grade) {
-        return clazzMapper.queryClassByGrade(grade);
+    public PageInfo<Map<String,Object>> queryClassByGrade(String grade, int currentPage) {
+        PageHelper.startPage(currentPage,10);
+        List<Map<String, Object>> list = clazzMapper.queryClassByGrade(grade);
+        PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
+        return pageInfo;
     }
 }
