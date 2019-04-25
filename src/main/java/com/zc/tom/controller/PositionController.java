@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.pojo.Position;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.service.PositionService;
@@ -56,6 +57,7 @@ public class PositionController {
             @ApiImplicitParam(name = "postSubsidy",value = "岗位补贴",dataType = "String",paramType = "query")
     })
     @ApiOperation("添加职位信息")
+    @Root
     public Result addPosition(@ApiIgnore Position position){
         positionService.addPosition(position);
         return result;
@@ -68,6 +70,7 @@ public class PositionController {
             @ApiImplicitParam(name = "postID",value = "职位编号",dataType = "String",paramType = "query")
     })
     @ApiOperation("修改职位信息")
+    @Root
     public Result updatePosition(@ApiIgnore Position position){
         positionService.updatePosition(position);
         return result;

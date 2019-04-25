@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.myAnnotation.Pass;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.service.LoginService;
 import io.swagger.annotations.Api;
@@ -29,6 +30,7 @@ public class LoginController {
     private LoginService loginService;
 
     @ApiOperation("登陆")
+    @Pass
     @PostMapping("/login")
     public String login(String telephone, String password){
         return loginService.login(telephone, password);

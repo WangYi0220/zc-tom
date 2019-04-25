@@ -1,6 +1,7 @@
 package com.zc.tom.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.pojo.Clazz;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.service.ClazzService;
@@ -38,6 +39,7 @@ public class ClazzController {
             @ApiImplicitParam(name = "className",value = "班级名称",dataType = "String" ,paramType = "query"),
             @ApiImplicitParam(name = "teaUUID",value = "辅导员编号",dataType = "String" ,paramType = "query")
     })
+    @Root
     public Result insertClazz(@ApiIgnore Clazz clazz){
         return clazzService.insertClazz(clazz);
     }

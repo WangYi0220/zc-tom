@@ -48,10 +48,25 @@ public class LoginServiceImpl implements LoginService {
         return JSON.toJSONString(result);
     }
 
+    /**
+     * 修改密码
+     * @param params
+     * @return
+     */
     @Override
     public Result updatePassword(Map<String, Object> params) {
         int i = loginMapper.updatePassword(params);
         if (i == 0)return result.setStatus(false);
         return result;
+    }
+
+    /**
+     * 为认证提供
+     * @param teaUUID
+     * @return
+     */
+    @Override
+    public Teacher getForAuthentication(String teaUUID) {
+        return loginMapper.getForAuthentication(teaUUID);
     }
 }

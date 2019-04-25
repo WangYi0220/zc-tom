@@ -18,4 +18,12 @@
         where telephone = #{params.telephone}
         and password = #{params.oldPassword}
     </update>
+
+    <select id="getForAuthentication" parameterType="String" resultType="Teacher">
+        select
+        teaUUID,
+        root
+        from tb_teacher
+        where teaUUID = #{teaUUID}
+    </select>
 </mapper>

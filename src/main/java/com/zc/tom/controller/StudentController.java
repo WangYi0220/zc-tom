@@ -1,6 +1,7 @@
 package com.zc.tom.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.common.utils.DownloadFileUtil;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Student;
@@ -41,6 +42,7 @@ public class StudentController {
 
     @PostMapping("/import")
     @ApiOperation("学生信息导入")
+    @Root
     public Result importStudentInfo(MultipartFile multipartFile, String classUUID) {
         studentService.importStudentInfo(multipartFile, classUUID);
         return result;

@@ -1,8 +1,10 @@
 package com.zc.tom.common.config;
 
+import com.zc.tom.common.interceptor.AuthenticationInterceptor;
 import com.zc.tom.pojo.Result;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,8 +14,12 @@ public class WebConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("/zc/**").addResourceLocations("file:D:\\zcimg\\");
     }
 
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/**/*").excludePathPatterns("/**/swagger-resources/**","/**/v2/**");
+    }
+
     @Bean
-    public Result result(){
+    public Result result() {
         return new Result();
     }
 }

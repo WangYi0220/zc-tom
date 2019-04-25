@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.common.utils.DownloadFileUtil;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Teacher;
@@ -56,6 +57,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/import",method = RequestMethod.POST)
     @ApiOperation("导入辅导员信息")
+    @Root
     public Result importTeacherInfo(MultipartFile multipartFile){
         teacherService.importTeacherInfo(multipartFile);
         return result;
@@ -63,6 +65,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/delete/{teaUUID}",method = RequestMethod.GET)
     @ApiOperation("禁用辅导员")
+    @Root
     public Result deleteTeacherStatusByTeaUUID(@PathVariable("teaUUID") String teaUUID){
         teacherService.deleteTeacherStatusByTeaUUID(teaUUID);
         return result;

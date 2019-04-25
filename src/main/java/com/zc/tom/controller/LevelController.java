@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.pojo.Level;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.service.LevelService;
@@ -34,6 +35,7 @@ public class LevelController {
 
     @ApiOperation("等级调整")
     @GetMapping("/update")
+    @Root
     public Result updateStudentLevel(){
         levelService.updateStudentLevel();
         return result;

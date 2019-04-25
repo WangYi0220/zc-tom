@@ -1,5 +1,6 @@
 package com.zc.tom.controller;
 
+import com.zc.tom.common.myAnnotation.Root;
 import com.zc.tom.pojo.Result;
 import com.zc.tom.pojo.Stipulation;
 import com.zc.tom.service.StipulationService;
@@ -53,6 +54,7 @@ public class StipulationController {
             @ApiImplicitParam(name = "sValue",value = "加减分项，加为整数，减为负数",paramType = "query")
     })
     @ApiOperation("添加赏罚条例")
+    @Root
     public Result addStipulation(@ApiIgnore Stipulation stipulation){
         stipulationService.addStipulation(stipulation);
         return result;
@@ -66,6 +68,7 @@ public class StipulationController {
             @ApiImplicitParam(name = "sID",value = "规定编号",paramType = "query")
     })
     @ApiOperation("修改赏罚条例")
+    @Root
     public Result updateStipulation(@ApiIgnore Stipulation stipulation){
         System.out.println("stipulation = " + stipulation);
         stipulationService.updateStipulation(stipulation);
