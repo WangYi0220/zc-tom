@@ -46,7 +46,7 @@ public class PositionController {
 
     @RequestMapping(value = "/getStuPositionInfo/{stuUUID}",method = RequestMethod.GET)
     @ApiOperation("根据编号查看学生的职位信息")
-    public List<Map<String,Object>> getStudentPositionInfoByStuUUID(String stuUUID){
+    public List<Map<String,Object>> getStudentPositionInfoByStuUUID(@PathVariable("stuUUID") String stuUUID){
         return positionService.getStudentPositionInfoByStuUUID(stuUUID);
     }
 

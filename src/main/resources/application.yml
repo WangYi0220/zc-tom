@@ -11,7 +11,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://192.168.22.46:3306/attendance_system_db?serverTimezone=GMT%2B8&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://192.168.22.46:3306/attendance_system_db?serverTimezone=GMT%2B8&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&useAffectedRows=true
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: GZXD17302

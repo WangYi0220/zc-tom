@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zc.tom.mapper.LoginMapper">
+    <select id="login" resultType="Teacher">
+        select
+        teaUUID,
+        teaName,
+        root,
+        telephone
+        from tb_teacher
+        where telephone = #{telephone}
+        and password = #{password}
+        and status = 1
+    </select>
+
+    <update id="updatePassword" parameterType="Map">
+        update tb_teacher
+        set password = #{params.newPassword}
+        where telephone = #{params.telephone}
+        and password = #{params.oldPassword}
+    </update>
+</mapper>

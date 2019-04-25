@@ -58,12 +58,12 @@ public class ClazzController {
 
     @ApiOperation("查询全部班级")
     @GetMapping("/query/class/{currentPage}")
-    public PageInfo<Map<String, Object>> queryClass(@PathVariable int currentPage){
+    public PageInfo<Map<String, Object>> queryClass(@PathVariable("currentPage") int currentPage){
         return clazzService.queryClass(currentPage);
     }
 
     @ApiOperation("根据辅导员编号和届查询班级")
-    @GetMapping("/list/by/{teaUUID}/{grade}")
+    @GetMapping("/list/by/tea/{teaUUID}/{grade}")
     List<Map<String, Object>> queryClassByTeaUUIDAndGrade(@PathVariable("teaUUID") String teaUUID,@PathVariable("grade") String grade){
         return clazzService.queryClassByTeaUUIDAndGrade(teaUUID, grade);
     }
