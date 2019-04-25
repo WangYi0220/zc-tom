@@ -24,4 +24,6 @@ public interface ClazzMapper {
     List<Map<String, Object>> queryClassByTeaUUIDAndGrade(@Param("teaUUID") String teaUUID, @Param("grade") String grade);
 
     List<Map<String, Object>> queryClassByGrade(@Param("grade") String grade);
+
+    List<Map<String, String>> getGradeByTeaUUID(@Param("teaUUID") String teaUUID);
 }

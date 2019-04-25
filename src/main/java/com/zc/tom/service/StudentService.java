@@ -26,5 +26,4 @@ public interface StudentService {
 
     // 禁用学生
     void updateStudentStatusByStuUUID(String stuUUID);
-
 }

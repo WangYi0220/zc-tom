@@ -1,6 +1,5 @@
 package com.zc.tom.common.config;
 
-import com.zc.tom.common.interceptor.AuthenticationInterceptor;
 import com.zc.tom.pojo.Result;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +14,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     }
 
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/**/*").excludePathPatterns("/**/swagger-resources/**","/**/v2/**");
+        //registry.addInterceptor(new AuthenticationInterceptor()).addPathPatterns("/**/*").excludePathPatterns("/**/swagger-resources/**","/**/v2/**");
     }
 
     @Bean

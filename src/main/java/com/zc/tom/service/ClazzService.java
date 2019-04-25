@@ -30,4 +30,6 @@ public interface ClazzService {
     List<Map<String, Object>> queryClassByTeaUUIDAndGrade(String teaUUID,String grade);
 
     PageInfo<Map<String,Object>> queryClassByGrade(String grade, int currentPage);
+
+    List<Map<String, String>> getGradeByTeaUUID(String teaUUID);
 }

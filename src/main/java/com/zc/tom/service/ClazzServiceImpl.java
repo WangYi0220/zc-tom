@@ -88,4 +88,14 @@ public class ClazzServiceImpl implements ClazzService {
         PageInfo<Map<String,Object>> pageInfo = new PageInfo<Map<String,Object>>(list);
         return pageInfo;
     }
+
+    /**
+     * 获取年级
+     * @param teaUUID
+     * @return
+     */
+    @Override
+    public List<Map<String, String>> getGradeByTeaUUID(String teaUUID) {
+        return clazzMapper.getGradeByTeaUUID(teaUUID);
+    }
 }

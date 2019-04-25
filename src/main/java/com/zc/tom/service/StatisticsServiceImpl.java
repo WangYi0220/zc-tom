@@ -1,25 +1,32 @@
 package com.zc.tom.service;
 
+import com.zc.tom.common.utils.SpringUtils;
 import com.zc.tom.mapper.StatisticsMapper;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author ：WangYi
@@ -32,6 +39,11 @@ import java.util.Map;
 public class StatisticsServiceImpl implements StatisticsService {
     @Autowired
     private StatisticsMapper statisticsMapper;
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    @Value("${spring.mail.username}")
+    private String from;
 
     /**
      * 工资统计
@@ -70,7 +82,17 @@ public class StatisticsServiceImpl implements StatisticsService {
                 Double coefficient = Double.parseDouble(item.get("coefficient").toString());//绩效系数
                 Double score = Double.parseDouble(item.get("score").toString());//考核分数
                 Double checkWage = (salary * coefficient * score);//考核工资
-
+                ConcurrentHashMap<String, Object> content = new ConcurrentHashMap<>();
+                content.put("stuName", stuName);
+                content.put("levelName", levelName);
+                content.put("salary", ((salary + 0.00) / 100.00));
+                content.put("subsidyTotal", ((subsidyTotal + 0.00) / 100.00));
+                content.put("moneyTotal", ((moneyTotal + 0.00) / 100.00));
+                content.put("coefficient", (coefficient + 0.00) / 100.00);
+                content.put("score", score);
+                content.put("checkWage", (checkWage + 0.00) / Math.pow(100.00, 3.00));
+                content.put("valueTotal", valueTotal);
+                content.put("total", (salary + subsidyTotal + moneyTotal) / 100.00 + (checkWage + 0.00) / Math.pow(100.00, 3.00));
                 dataRow.createCell(0).setCellValue(stuName);//学生姓名
                 dataRow.createCell(1).setCellValue(levelName);//学生等级
                 dataRow.createCell(2).setCellValue(((salary + 0.00) / 100.00));//基本工资
@@ -81,6 +103,8 @@ public class StatisticsServiceImpl implements StatisticsService {
                 dataRow.createCell(7).setCellValue((checkWage + 0.00) / Math.pow(100.00, 3.00));//考核工资
                 dataRow.createCell(8).setCellValue(valueTotal);//当前积分
                 dataRow.createCell(9).setCellValue((salary + subsidyTotal + moneyTotal) / 100.00 + (checkWage + 0.00) / Math.pow(100.00, 3.00));//实发工资
+                StatisticsService statisticsService = SpringUtils.getBean(StatisticsService.class);
+                statisticsService.sendEmailToStudent(item.get("email").toString(), content);
             });
             String fileName = "工资汇总.xlsx";
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -116,5 +140,37 @@ public class StatisticsServiceImpl implements StatisticsService {
             if ("-1".equals(score.trim())) names.add(item.get("stuName").toString());
         });
         return names;
+    }
+
+    /**
+     * 给学生发送邮件
+     *
+     * @param email
+     */
+    @Override
+    @Async
+    public void sendEmailToStudent(String email, Map<String, Object> content) {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        String text = "姓名：" + content.get("stuName")
+                + "<br/>等级：" + content.get("levelName")
+                + "<br/>基本工资：" + content.get("salary")
+                + "<br/>岗位津贴：" + content.get("subsidyTotal")
+                + "<br/>赏罚金额：" + content.get("moneyTotal")
+                + "<br/>考核系数：" + content.get("coefficient")
+                + "<br/>考核分数：" + content.get("score")
+                + "<br/>考核工资：" + content.get("checkWage")
+                + "<br/>当前积分：" + content.get("valueTotal")
+                + "<br/>总工资：" + content.get("total");
+        try {
+            //true表示需要创建一个multipart message
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setFrom(from);
+            helper.setTo(email);
+            helper.setSubject("专才教务处");
+            helper.setText(text, true);
+            javaMailSender.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -5,6 +5,17 @@ mybatis:
   type-aliases-package: com.zc.tom.pojo
   config-location: classpath:SqlMapConfig.xml
 spring:
+  mail:
+    host: smtp.163.com
+    username: 13719664496@163.com
+    password: yiwang99
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
   jackson:
     serialization:
       write-dates-as-timestamps: true

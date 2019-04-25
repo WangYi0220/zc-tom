@@ -45,4 +45,14 @@
         inner join tb_teacher teacher
         on class.teaUUID = teacher.teaUUID
     </select>
+    
+    <select id="getGradeByTeaUUID" parameterType="String" resultType="Map">
+        select
+        distinct `grade`
+        from `tb_class`
+        <if test="teaUUID != null and teaUUID != ''">
+            where teaUUID = #{teaUUID}
+        </if>
+        order by grade desc
+    </select>
 </mapper>
